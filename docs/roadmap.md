@@ -48,6 +48,7 @@
 4. 增加更细的错误码和诊断对象
 5. 增加 Solana Address Lookup Table 构造辅助函数
 6. 增加 Safe 状态快照输入和 EIP-1271 验证适配
+7. 推进 Go SDK 到可加载并验证 `test/vectors/wtv-v1-smoke.json`
 
 ## 测试 TODO
 

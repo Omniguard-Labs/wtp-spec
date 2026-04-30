@@ -100,7 +100,7 @@ WtvTrustMetadata = {
 
 当 `issued_at` 或 `expires_at` 缺失、格式错误、尚未生效或已经过期时，验证器必须拒绝 trust metadata。
 
-当 `revoked_at` 为空，或验证器时间大于等于 `revoked_at` 时，吊销记录生效。
+当 `revoked_at` 缺失、为空，或验证器时间大于等于 `revoked_at` 时，吊销记录生效。生产方应该省略 `revoked_at` 表示立即吊销，而不是输出空字符串。
 
 支持的吊销目标：
 

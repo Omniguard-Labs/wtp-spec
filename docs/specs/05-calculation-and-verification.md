@@ -31,7 +31,7 @@ The verifier decodes base64url, decodes CBOR, normalizes the envelope fields, an
 - `chain_family`
 - `profile`
 
-In the reference SDK, canonical CBOR means deterministic CBOR encoding with map keys sorted by their encoded key bytes.
+`WTV-v1` canonical CBOR follows RFC 8949 Section 4.2 deterministic encoding with definite lengths and shortest-form integers. This specification uses the length-first map key ordering described by RFC 8949 Section 4.2.3: map keys are ordered first by the length of their deterministic CBOR encoding, then by bytewise lexical order. Floating-point values, tags, and indefinite-length items are not used by `WTV-v1`.
 
 Fragmented QR text uses frames with the `wtv1/` prefix. Reassembly MUST preserve frame ordering before decoding the final `wtv1:` text.
 
@@ -166,7 +166,7 @@ Solana transaction bytes do not encode the cluster. The verifier treats `tx.clus
 tx.cluster == expectedCluster
 ```
 
-When the cluster declaration is security-sensitive, a verifier SHOULD require `auth_mode = vendor_sig` so the declaration is authenticated by the vendor signature.
+When a verifier relies on the cluster declaration for a security decision, it MUST require `auth_mode = vendor_sig` or another authenticated local policy for the cluster. `auth_mode = none` can still be used for byte recovery and diagnostics, but the cluster declaration is then only an unauthenticated hint.
 
 ## 7. Signed Transaction Validation
 
@@ -174,7 +174,7 @@ When the cluster declaration is security-sensitive, a verifier SHOULD require `a
 
 For signed EVM transactions, the verifier parses the signature fields, reconstructs the signable hash according to the transaction type, and recovers the sender address. The recovered values are returned in the parsed transaction summary.
 
-For Safe transactions, the verifier computes `safe_tx_hash` and parses the packed Safe `signatures` bytes. EOA EIP-712 signatures and Safe `eth_sign` signatures can be recovered offline. EIP-1271 contract signatures, approved hashes, and P-256 signatures are parsed but require chain state, contract calls, or a trusted state snapshot for complete validation.
+For Safe transactions, the verifier computes `safe_tx_hash` and parses the packed Safe `signatures` bytes. EOA EIP-712 signatures and Safe `eth_sign` signatures can be recovered offline. Offline Safe recovery MUST match Safe contract `ecrecover` behavior for ECDSA signatures and MUST NOT reject an otherwise valid Safe signature solely because `s` is high. EIP-1271 contract signatures, approved hashes, and P-256 signatures are parsed but require chain state, contract calls, or a trusted state snapshot for complete validation.
 
 ### 7.2 Solana
 

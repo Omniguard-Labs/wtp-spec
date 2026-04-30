@@ -12,6 +12,9 @@ const OWNER_A_PRIVATE_KEY =
   '0x59c6995e998f97a5a0044966f094538b29285e6f2d7cb3d5f2b0a3a85d27bce1';
 const OWNER_B_PRIVATE_KEY =
   '0x8b3a350cf5c34c9194ca3ff278b85ddbd6d3a1f80de0b31e7f912f3b8c3b6f40';
+const SECP256K1_ORDER = BigInt(
+  '0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141'
+);
 
 const vendorRoot = generateVendorRoot({
   vendorId: 'wallet.example',
@@ -47,6 +50,16 @@ function buildSafeTx() {
 
 function approvedHashSignature(owner) {
   return `0x${'0'.repeat(24)}${owner.slice(2).toLowerCase()}${'0'.repeat(64)}01`;
+}
+
+function toHighSSignature(signatureHex) {
+  const body = signatureHex.slice(2);
+  const r = body.slice(0, 64);
+  const s = body.slice(64, 128);
+  const v = Number.parseInt(body.slice(128, 130), 16);
+  const highS = (SECP256K1_ORDER - BigInt(`0x${s}`)).toString(16).padStart(64, '0');
+  const flippedV = v === 27 ? 28 : v === 28 ? 27 : v === 31 ? 32 : 31;
+  return `0x${r}${highS}${flippedV.toString(16).padStart(2, '0')}${body.slice(130)}`;
 }
 
 test('Safe sign-request envelope should round-trip under evm-safe-v1', () => {
@@ -100,6 +113,26 @@ test('Safe signed tx envelope should verify EOA signatures offline', () => {
   assert.equal(verification.signatures.offlineVerified, true);
   assert.deepEqual(verification.signatures.recoveredSigners, signed.signers);
   assert.equal(verification.safeTxHash, signed.safeTxHash);
+});
+
+test('Safe EOA verification should accept high-S signatures like contract ecrecover', () => {
+  const safeTx = buildSafeTx();
+  const signed = evm.signSafeTransaction({
+    safeTx,
+    privateKey: OWNER_A_PRIVATE_KEY
+  });
+  const envelope = evm.createSafeSignedTxEnvelope({
+    safeTx,
+    signatures: toHighSSignature(signed.signatures)
+  });
+  const verification = sdk.evm.verifySafeEnvelope(envelope, {
+    expectedOwners: signed.signers,
+    expectedThreshold: 1
+  });
+
+  assert.equal(verification.ok, true);
+  assert.equal(verification.signatures.offlineVerified, true);
+  assert.deepEqual(verification.signatures.recoveredSigners, signed.signers);
 });
 
 test('Safe eth_sign signatures should be recognized and recovered offline', () => {

@@ -51,10 +51,12 @@ Solana 交易字节不编码 cluster。验证器不能从 `message_bytes` 或 `s
 链感知验证器应该：
 
 - 当验证器策略提供 `expectedCluster` 时，将其与 `tx.cluster` 比对；
-- 当依赖 cluster 声明时，要求 `auth_mode = vendor_sig`；
+- 当依赖 cluster 声明做安全决策时，要求 `auth_mode = vendor_sig`；
 - 将 blockhash freshness 视为独立运行时校验。
 
 任何 expected-cluster 不匹配都必须使 envelope 无效。
+
+当 `auth_mode = none` 时，`cluster` 是未认证 hint。验证器仍然可以恢复和解析交易字节，但不得把 cluster 声明视为已验证。
 
 ## 5. Canonical Payload 规则
 

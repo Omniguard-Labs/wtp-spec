@@ -31,7 +31,7 @@ wtv1: base64url( CBOR( WtvEnvelope ) )
 - `chain_family`
 - `profile`
 
-在参考 SDK 中，canonical CBOR 指确定性 CBOR 编码，并按已编码 key 字节排序 map key。
+`WTV-v1` canonical CBOR 遵循 RFC 8949 第 4.2 节的确定性编码，使用定长长度和最短整数形式。本规范使用 RFC 8949 第 4.2.3 节描述的 length-first map key 排序：先按 key 的确定性 CBOR 编码长度排序，再按字节词典序排序。`WTV-v1` 不使用浮点数、tag 或不定长 item。
 
 分片 QR 文本使用 `wtv1/` 前缀。重新组装时必须保留帧顺序，然后再解码最终的 `wtv1:` 文本。
 
@@ -169,7 +169,7 @@ Solana 交易字节不编码 cluster。验证器把 `tx.cluster` 视为 envelope
 tx.cluster == expectedCluster
 ```
 
-当 cluster 声明具备安全敏感性时，验证器应该要求 `auth_mode = vendor_sig`，让该声明被厂商签名认证。
+当验证器依赖 cluster 声明做安全决策时，必须要求 `auth_mode = vendor_sig`，或使用另一个经过认证的本地 cluster 策略。`auth_mode = none` 仍可用于字节恢复和诊断，但此时 cluster 声明只是未认证 hint。
 
 ## 7. 已签名交易校验
 
@@ -178,8 +178,7 @@ tx.cluster == expectedCluster
 对已签名 EVM 交易，验证器解析签名字段，按交易类型重建 signable hash，并恢复发送方地址。恢复出的值会返回在 parsed transaction summary 中。
 
 对于 Safe 交易，验证器计算 `safe_tx_hash` 并解析 packed Safe `signatures` 字节。
-EOA EIP-712 签名和 Safe `eth_sign` 签名可以离线恢复。EIP-1271 合约签名、approved
-hash 和 P-256 签名可以解析，但完整验证需要链上状态、合约调用或可信状态快照。
+EOA EIP-712 签名和 Safe `eth_sign` 签名可以离线恢复。Safe 离线恢复必须与 Safe 合约的 `ecrecover` 行为一致，不得仅因为 `s` 为 high-S 而拒绝一个其他方面有效的 Safe 签名。EIP-1271 合约签名、approved hash 和 P-256 签名可以解析，但完整验证需要链上状态、合约调用或可信状态快照。
 
 ### 7.2 Solana
 

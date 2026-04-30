@@ -133,6 +133,7 @@ Offline signature handling:
 
 - EOA EIP-712 signatures with `v = 27/28` can be recovered offline.
 - `eth_sign` signatures with Safe's `v > 30` convention can be recovered offline after applying the EIP-191 32-byte message prefix.
+- Offline recovery MUST follow Safe contract `ecrecover` compatibility and MUST NOT reject an otherwise valid Safe ECDSA signature solely because `s` is high.
 - EIP-1271 contract signatures, approved hashes, and P-256 signatures are parsed but require chain state, contract calls, or a trusted state snapshot for complete verification.
 - Safe requires owner signatures to be sorted by owner address. A verifier SHOULD check signer ordering when signatures are present.
 

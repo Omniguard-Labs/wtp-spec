@@ -51,10 +51,12 @@ Solana transaction bytes do not encode the cluster. A verifier cannot recover `c
 A chain-aware verifier SHOULD:
 
 - compare `tx.cluster` with `expectedCluster` when supplied by verifier policy;
-- require `auth_mode = vendor_sig` when relying on the cluster declaration;
+- require `auth_mode = vendor_sig` when relying on the cluster declaration for a security decision;
 - treat blockhash freshness as separate runtime validation.
 
 Any expected-cluster mismatch MUST invalidate the envelope.
+
+With `auth_mode = none`, `cluster` is an unauthenticated hint. A verifier MAY still recover and parse transaction bytes, but it MUST NOT treat the cluster declaration as verified.
 
 ## 5. Canonical Payload Rules
 

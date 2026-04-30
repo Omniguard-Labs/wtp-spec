@@ -132,6 +132,7 @@ SafeTx = {
 
 - `v = 27/28` 的 EOA EIP-712 签名可以离线恢复；
 - 使用 Safe `v > 30` 约定的 `eth_sign` 签名，可以在套用 EIP-191 32-byte message prefix 后离线恢复；
+- 离线恢复必须兼容 Safe 合约的 `ecrecover` 行为，不得仅因为 `s` 为 high-S 而拒绝一个其他方面有效的 Safe ECDSA 签名；
 - EIP-1271 合约签名、approved hash 和 P-256 签名可以解析，但完整验证需要链上状态、合约调用或可信状态快照；
 - Safe 要求 owner 签名按 owner 地址升序排列。签名存在时，验证器应该检查排序。
 

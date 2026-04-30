@@ -101,7 +101,7 @@ The reference SDK uses these default validity windows when a caller does not pro
 
 A verifier MUST reject trust metadata when `issued_at` or `expires_at` is missing, malformed, not yet valid, or expired.
 
-Revocation records become active when `revoked_at` is empty or when verifier time is greater than or equal to `revoked_at`.
+Revocation records become active when `revoked_at` is missing, empty, or when verifier time is greater than or equal to `revoked_at`. Producers SHOULD omit `revoked_at` for immediate revocation instead of emitting an empty string.
 
 Supported revocation targets:
 

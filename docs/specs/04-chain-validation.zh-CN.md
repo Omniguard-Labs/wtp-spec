@@ -45,7 +45,9 @@ Solana 交易字节不编码 cluster。因此验证器必须把 `cluster` 视为
 
 - 要求 `tx.cluster` 存在；
 - 将其与验证器提供的预期 cluster 比对；
-- 当 cluster 声明具备安全敏感性时，要求 `auth_mode = vendor_sig`。
+- 当验证器依赖 cluster 声明做安全决策时，要求 `auth_mode = vendor_sig`。
+
+如果没有来源认证或已认证的本地策略，`cluster` 只是 hint。
 
 当前 SDK 将该策略检查暴露为 `verifyEnvelope(..., { expectedCluster })`。
 

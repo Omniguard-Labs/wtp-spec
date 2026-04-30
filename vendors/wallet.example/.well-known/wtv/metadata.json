@@ -14,9 +14,9 @@
       "algorithm": "Ed25519",
       "public_key": {
         "encoding": "base64url",
-        "value": "MCowBQYDK2VwAyEA5YSOd4LLYRDTIK0KKAY-4_IXXjvMgzzr3dB7d3Yo2bY"
+        "value": "MCowBQYDK2VwAyEA1zgWoo3GNDT-rnDHASPJ5Wy5H0JohBsOF0-L8TkUWzo"
       },
-      "root_fingerprint": "sha256:d36db544d57cb734f89cd54663c6d5ea948a548c2e26ae9188bdcf553ba4fdb5",
+      "root_fingerprint": "sha256:43579aa0e0783b4c38c8700c5b494821b47c8c845bea8dd435e070345c19b8c0",
       "valid_from": "2026-04-30T00:00:00.000Z",
       "valid_to": "2027-04-30T00:00:00.000Z",
       "status": "active"
@@ -31,15 +31,15 @@
       "algorithm": "Ed25519",
       "public_key": {
         "encoding": "base64url",
-        "value": "MCowBQYDK2VwAyEAoG1n--OiLF8XrMtkpRKwT9Lck50xJujg0MtjLOnLkfQ"
+        "value": "MCowBQYDK2VwAyEA0_uCIdWVH3gxFn7ifbbpzPkvHY9Snq7mNtS4PhC6mW0"
       },
-      "issuer_root_fingerprint": "sha256:d36db544d57cb734f89cd54663c6d5ea948a548c2e26ae9188bdcf553ba4fdb5",
+      "issuer_root_fingerprint": "sha256:43579aa0e0783b4c38c8700c5b494821b47c8c845bea8dd435e070345c19b8c0",
       "valid_from": "2026-04-30T00:00:00.000Z",
       "valid_to": "2026-10-30T00:00:00.000Z",
       "status": "active",
       "issuer_signature": {
         "encoding": "base64url",
-        "value": "57Z2dMq_KZiOXuX-cByPTSLi57S0jlAHk0x2W4NlVAhvhEN-3g5wD_lAYZ1JeGWpdwOvJn--3XTSPknoF-K5Cg"
+        "value": "w125M5yINfYxtdwzazp-mWVf5NEhc5ZGuPsaNeYB_jKgnXwGYblRJD-9IAg1GVSUi_qn3JLZRaGoJUBD-LrhCQ"
       }
     }
   ],
@@ -53,12 +53,12 @@
   ],
   "auth": {
     "auth_mode": "root_sig",
-    "root_fingerprint": "sha256:d36db544d57cb734f89cd54663c6d5ea948a548c2e26ae9188bdcf553ba4fdb5",
+    "root_fingerprint": "sha256:43579aa0e0783b4c38c8700c5b494821b47c8c845bea8dd435e070345c19b8c0",
     "signing_key_id": "root",
     "algorithm": "Ed25519",
     "signature": {
       "encoding": "base64url",
-      "value": "hEmiAScERHJvb3Sg9lhAcDeMCOh-BcFMmeignUDuC9pH9k5ITWVM2nVmde-myIRLnIa3DxmtIfqPGO3Ukax6AKXK_uKDiMYkvb-2FjSGBA"
+      "value": "hEmiAScERHJvb3Sg9lhA0wcJP7ducEemeCAI-x91zJ4bFNBxQxeA2fhKOxgcgNqcMy40aVGvHSSA-caBwrVAIHr4Z_aJ22LwtgkOQJWYCg"
     }
   }
 }

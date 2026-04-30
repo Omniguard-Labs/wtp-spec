@@ -8,6 +8,10 @@ const DOMAIN_SEPARATOR_TYPEHASH = utils.id(
 const SAFE_TX_TYPEHASH = utils.id(
   'SafeTx(address to,uint256 value,bytes data,uint8 operation,uint256 safeTxGas,uint256 baseGas,uint256 gasPrice,address gasToken,address refundReceiver,uint256 nonce)'
 );
+const SECP256K1_ORDER = BigInt(
+  '0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141'
+);
+const SECP256K1_HALF_ORDER = SECP256K1_ORDER / 2n;
 const abiCoder = utils.AbiCoder.defaultAbiCoder();
 const safeInterface = new utils.Interface([
   'function execTransaction(address to,uint256 value,bytes data,uint8 operation,uint256 safeTxGas,uint256 baseGas,uint256 gasPrice,address gasToken,address refundReceiver,bytes signatures) returns (bool success)'
@@ -94,6 +98,31 @@ function bytesToBigInt(bytes) {
 
 function wordToAddress(wordHex) {
   return utils.getAddress(utils.hexDataSlice(wordHex, 12)).toLowerCase();
+}
+
+function hexUint256(value) {
+  return utils.hexZeroPad(`0x${value.toString(16)}`, 32).toLowerCase();
+}
+
+function normalizeSafeEcdsaSignature({ r, s, v }) {
+  const sValue = BigInt(s);
+  if (sValue > SECP256K1_HALF_ORDER && sValue < SECP256K1_ORDER) {
+    if (v !== 27 && v !== 28) {
+      return { r, s, v };
+    }
+    return {
+      r,
+      s: hexUint256(SECP256K1_ORDER - sValue),
+      v: v === 27 ? 28 : 27
+    };
+  }
+  return { r, s, v };
+}
+
+function recoverSafeEcdsaSigner(digest, signature) {
+  return utils
+    .recoverAddress(digest, normalizeSafeEcdsaSignature(signature))
+    .toLowerCase();
 }
 
 function safeTxAbiValues(safeTx) {
@@ -328,13 +357,14 @@ export function parseSafeSignatures(
         item.requires_onchain_check = true;
         item.reason = 'requires_p256_verification';
       } else if (v > 30) {
-        item.signer = utils
-          .recoverAddress(utils.hashMessage(utils.arrayify(safeTxHash)), { r, s, v: v - 4 })
-          .toLowerCase();
+        item.signer = recoverSafeEcdsaSigner(
+          utils.hashMessage(utils.arrayify(safeTxHash)),
+          { r, s, v: v - 4 }
+        );
         item.signature_type = 'eth_sign';
         item.verified_offline = true;
       } else if (v === 27 || v === 28) {
-        item.signer = utils.recoverAddress(safeTxHash, { r, s, v }).toLowerCase();
+        item.signer = recoverSafeEcdsaSigner(safeTxHash, { r, s, v });
         item.signature_type = 'eip712';
         item.verified_offline = true;
       } else {

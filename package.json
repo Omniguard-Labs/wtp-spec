@@ -14,8 +14,15 @@
     "url": "https://github.com/Omniguard-Labs/wtv-spec/issues"
   },
   "exports": {
-    ".": "./src/index.js"
+    ".": "./src/index.js",
+    "./core": "./src/core/index.js",
+    "./evm": "./src/profiles/evm/index.js",
+    "./solana": "./src/profiles/solana/index.js"
   },
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
   "scripts": {
     "test": "node --test test/**/*.test.js"
   },

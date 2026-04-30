@@ -45,7 +45,9 @@ A chain-aware verifier SHOULD:
 
 - require `tx.cluster` to be present;
 - compare it with the verifier-supplied expected cluster;
-- require `auth_mode = vendor_sig` when the cluster declaration is security-sensitive.
+- require `auth_mode = vendor_sig` when relying on the cluster declaration for a security decision.
+
+Without authenticated origin or an authenticated local policy, `cluster` is only a hint.
 
 The current SDK exposes this policy check as `verifyEnvelope(..., { expectedCluster })`.
 
