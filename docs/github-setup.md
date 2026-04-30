@@ -5,8 +5,8 @@ Use GitHub Free for organizations. Do not start an Enterprise trial unless paid 
 ## Repository Name
 
 - Organization: `Omniguard-Labs`
-- Repository: `wtv-spec`
-- Full repository URL: `https://github.com/Omniguard-Labs/wtv-spec`
+- Repository: `wtp-spec`
+- Full repository URL: `https://github.com/Omniguard-Labs/wtp-spec`
 
 ## Create Organization
 

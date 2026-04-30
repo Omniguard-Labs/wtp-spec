@@ -4,7 +4,7 @@
 
 ## English
 
-`wtv-spec` is a standalone package. It does not depend on other local
+`wtp-spec` is a standalone package. It does not depend on other local
 OmniArb packages. Runtime dependencies are intentionally small:
 
 - `ethers@^6.16.0`: used by the EVM profile for address normalization, RLP,
@@ -37,7 +37,7 @@ The recommended posture is:
 
 English: [Dependency Review](#dependency-review)
 
-`wtv-spec` 是一个独立包，不依赖其他本地 OmniArb 包。运行时依赖保持得比较小：
+`wtp-spec` 是一个独立包，不依赖其他本地 OmniArb 包。运行时依赖保持得比较小：
 
 - `ethers@^6.16.0`：EVM profile 用它做地址规范化、RLP、交易签名/恢复和
   `keccak256`。这是当前维护中的主版本，并移除了旧的 `@ethersproject/*` v5

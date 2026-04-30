@@ -7,11 +7,11 @@
   "description": "Reference SDK for the Wallet Transaction Provenance Standard",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Omniguard-Labs/wtv-spec.git"
+    "url": "https://github.com/Omniguard-Labs/wtp-spec.git"
   },
-  "homepage": "https://github.com/Omniguard-Labs/wtv-spec#readme",
+  "homepage": "https://github.com/Omniguard-Labs/wtp-spec#readme",
   "bugs": {
-    "url": "https://github.com/Omniguard-Labs/wtv-spec/issues"
+    "url": "https://github.com/Omniguard-Labs/wtp-spec/issues"
   },
   "exports": {
     ".": "./src/index.js",
