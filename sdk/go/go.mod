@@ -1,3 +1,3 @@
-module github.com/Omniguard-Labs/wtv-spec/sdk/go
+module github.com/omniguard-labs/wtv-spec/sdk/go
 
 go 1.22

@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { Keypair, SystemProgram } from '@solana/web3.js';
 
 import {
-  WtvSdk,
+  WtpSdk,
   generateQrSigningIdentity,
   generateVendorRoot,
   solana
@@ -34,7 +34,7 @@ const signingIdentity = generateQrSigningIdentity({
 });
 
 const trustedRoots = [vendorRoot.rootRecord];
-const sdk = new WtvSdk({ trustedRoots });
+const sdk = new WtpSdk({ trustedRoots });
 
 function buildSolanaCases() {
   return [

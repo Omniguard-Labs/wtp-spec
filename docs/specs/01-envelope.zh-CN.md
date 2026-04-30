@@ -1,10 +1,10 @@
-# WTV Envelope
+# WTP Envelope
 
-English: [WTV Envelope](01-envelope.md)
+English: [WTP Envelope](01-envelope.md)
 
 ## 1. Envelope 模型
 
-`WTV` payload 是一个 CBOR 文档，顶层结构如下：
+`WTP` payload 是一个 CBOR 文档，顶层结构如下：
 
 ```text
 WtvEnvelope = {

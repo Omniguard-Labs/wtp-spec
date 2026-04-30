@@ -1,10 +1,10 @@
-# WTV 信任模型
+# WTP 信任模型
 
-English: [WTV Trust Model](02-trust-model.md)
+English: [WTP Trust Model](02-trust-model.md)
 
 ## 1. 信任锚
 
-`WTV` 将发现机制与信任机制分离。
+`WTP` 将发现机制与信任机制分离。
 
 - 域名和 GitHub 仓库可以用于发布和审计。
 - 它们不得被视为最终信任锚。

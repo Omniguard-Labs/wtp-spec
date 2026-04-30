@@ -1,6 +1,6 @@
-# WTV EVM Profile
+# WTP EVM Profile
 
-English: [WTV EVM Profile](10-evm-profile.md)
+English: [WTP EVM Profile](10-evm-profile.md)
 
 ## 1. Profile 标识
 

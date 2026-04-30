@@ -1,10 +1,10 @@
 {
-  "name": "@omniarb/wtv-sdk",
+  "name": "@omniarb/wtp-sdk",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "license": "Apache-2.0",
-  "description": "Reference SDK for the Wallet Transaction Verification Standard",
+  "description": "Reference SDK for the Wallet Transaction Provenance Standard",
   "repository": {
     "type": "git",
     "url": "https://github.com/Omniguard-Labs/wtv-spec.git"

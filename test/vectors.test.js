@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { Buffer } from 'node:buffer';
 
 import {
-  WtvSdk,
+  WtpSdk,
   decodeTrustMetadata,
   encodeTrustMetadata,
   evm,
@@ -13,7 +13,7 @@ import {
   verifyTrustMetadata
 } from '../src/index.js';
 
-const vectors = JSON.parse(fs.readFileSync('test/vectors/wtv-v1-smoke.json', 'utf8'));
+const vectors = JSON.parse(fs.readFileSync('test/vectors/wtp-v1-smoke.json', 'utf8'));
 
 function bytesFromHex(value) {
   return new Uint8Array(Buffer.from(value.replace(/^0x/, ''), 'hex'));
@@ -24,7 +24,7 @@ function hexOf(value) {
 }
 
 test('conformance vectors should decode and verify without regeneration', () => {
-  const sdk = new WtvSdk();
+  const sdk = new WtpSdk();
 
   for (const vector of vectors.envelopes) {
     const bytes = bytesFromHex(vector.envelope_cbor_hex);

@@ -1,6 +1,6 @@
-# WTV Vendor Directory
+# WTP Vendor Directory
 
-中文：[WTV 厂商目录](#wtv-厂商目录)
+中文：[WTP 厂商目录](#wtp-厂商目录)
 
 This directory contains vendor-published trust material examples. Each vendor should use one directory named by `vendor_id`.
 
@@ -23,7 +23,7 @@ Rules:
 
 ## 中文
 
-English: [WTV Vendor Directory](#wtv-vendor-directory)
+English: [WTP Vendor Directory](#wtp-vendor-directory)
 
 本目录用于放置厂商公开信任材料样例。每个厂商使用一个以 `vendor_id` 命名的目录。
 

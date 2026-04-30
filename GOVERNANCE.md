@@ -1,6 +1,6 @@
 # Governance
 
-WTV is maintained as an open draft standard.
+WTP is maintained as an open draft standard.
 
 ## Roles
 
@@ -12,8 +12,8 @@ WTV is maintained as an open draft standard.
 
 - Editorial fixes may be merged after maintainer review.
 - Normative changes require public discussion before merge.
-- Breaking changes are allowed before `WTV-v1` is frozen.
-- After `WTV-v1` is frozen, breaking changes require a new version label.
+- Breaking changes are allowed before `WTP-v1` is frozen.
+- After `WTP-v1` is frozen, breaking changes require a new version label.
 
 ## Working Group
 

@@ -1,11 +1,11 @@
-# WTV TypeScript SDK
+# WTP TypeScript SDK
 
-中文：[WTV TypeScript SDK](#wtv-typescript-sdk-中文)
+中文：[WTP TypeScript SDK](#wtp-typescript-sdk-中文)
 
 This SDK entry point re-exports the current JavaScript reference implementation in `../../src`.
 
 ```ts
-import { WtvSdk, evm, generateVendorRoot } from './sdk/ts/index.js';
+import { WtpSdk, evm, generateVendorRoot } from './sdk/ts/index.js';
 ```
 
 Current scope:
@@ -18,14 +18,14 @@ Current scope:
 
 The implementation is JavaScript-first today. The adjacent `index.d.ts` provides a conservative TypeScript surface for consumers.
 
-## WTV TypeScript SDK 中文
+## WTP TypeScript SDK 中文
 
-English: [WTV TypeScript SDK](#wtv-typescript-sdk)
+English: [WTP TypeScript SDK](#wtp-typescript-sdk)
 
 该 SDK 入口重新导出 `../../src` 中的 JavaScript 参考实现。
 
 ```ts
-import { WtvSdk, evm, generateVendorRoot } from './sdk/ts/index.js';
+import { WtpSdk, evm, generateVendorRoot } from './sdk/ts/index.js';
 ```
 
 当前范围：

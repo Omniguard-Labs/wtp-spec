@@ -1,10 +1,10 @@
-# WTV Chain Validation
+# WTP Chain Validation
 
-中文：[WTV 链校验](04-chain-validation.zh-CN.md)
+中文：[WTP 链校验](04-chain-validation.zh-CN.md)
 
 ## 1. Scope
 
-This document defines the common chain validation rules for `WTV-v1`.
+This document defines the common chain validation rules for `WTP-v1`.
 
 It covers the implemented profiles:
 

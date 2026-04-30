@@ -1,10 +1,10 @@
-# WTV 计算与校验
+# WTP 计算与校验
 
-English: [WTV Calculation and Verification](05-calculation-and-verification.md)
+English: [WTP Calculation and Verification](05-calculation-and-verification.md)
 
 ## 1. 范围
 
-本文梳理 `WTV-v1` 参考 SDK 执行的具体计算规则。链相关字段要求仍以各 profile 文档为准。
+本文梳理 `WTP-v1` 参考 SDK 执行的具体计算规则。链相关字段要求仍以各 profile 文档为准。
 
 本文覆盖：
 
@@ -31,7 +31,7 @@ wtv1: base64url( CBOR( WtvEnvelope ) )
 - `chain_family`
 - `profile`
 
-`WTV-v1` canonical CBOR 遵循 RFC 8949 第 4.2 节的确定性编码，使用定长长度和最短整数形式。本规范使用 RFC 8949 第 4.2.3 节描述的 length-first map key 排序：先按 key 的确定性 CBOR 编码长度排序，再按字节词典序排序。`WTV-v1` 不使用浮点数、tag 或不定长 item。
+`WTP-v1` canonical CBOR 遵循 RFC 8949 第 4.2 节的确定性编码，使用定长长度和最短整数形式。本规范使用 RFC 8949 第 4.2.3 节描述的 length-first map key 排序：先按 key 的确定性 CBOR 编码长度排序，再按字节词典序排序。`WTP-v1` 不使用浮点数、tag 或不定长 item。
 
 分片 QR 文本使用 `wtv1/` 前缀。重新组装时必须保留帧顺序，然后再解码最终的 `wtv1:` 文本。
 

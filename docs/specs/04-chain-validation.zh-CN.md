@@ -1,10 +1,10 @@
-# WTV 链校验
+# WTP 链校验
 
-English: [WTV Chain Validation](04-chain-validation.md)
+English: [WTP Chain Validation](04-chain-validation.md)
 
 ## 1. 范围
 
-本文定义 `WTV-v1` 的通用链校验规则。
+本文定义 `WTP-v1` 的通用链校验规则。
 
 覆盖已实现 profile：
 

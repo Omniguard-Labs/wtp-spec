@@ -1,41 +1,46 @@
-# WTV 概览
+# WTP 概览
 
-English: [WTV Overview](00-overview.md)
+English: [WTP Overview](00-overview.md)
 
 正式规范名：
 
-**Wallet Transaction Verification Standard**
+**Wallet Transaction Provenance Standard**
 
 中文名：
 
-**钱包交易验证标准**
+**钱包交易构造溯源标准**
+
+副标题：
+
+**Transaction construction provenance for wallet-generated envelopes**
 
 规范短编号：
 
-**WTV**
+**WTP**
 
 版本标识：
 
-**WTV-v1**
+**WTP-v1**
 
 ## 状态
 
 - 文档状态：Draft
-- 规范系列：`WTV-v1`
+- 规范系列：`WTP-v1`
 - SDK 状态：EVM、EVM Safe、Solana 已实现
 
 ## 范围
 
-`WTV` 定义钱包交易交叉验证格式，用于：
+`WTP` 定义钱包交易构造溯源格式，用于：
 
-- 从可携带 payload 中恢复原始交易字节；
-- 验证钱包厂商来源信息；
-- 在另一台设备上进行独立模拟和反钓鱼检查。
+- 从可携带 payload 中恢复钱包生成的原始交易字节；
+- 验证钱包厂商来源信息和 envelope 完整性；
+- 在另一台设备上进行独立模拟、策略检查和反钓鱼复核。
 
-对外名称刻意保持简短，但规范目标仍然是 cross-verification / independent
-verification：由独立于 payload 生成钱包的设备或验证器进行复核。
+本规范中的 provenance 指钱包生成交易 payload 的来源和构造上下文，不是链上
+资金流向溯源。规范目标是 independent cross-checking：由独立于 payload
+生成钱包的设备或验证器进行复核。
 
-`WTV` 不定义：
+`WTP` 不定义：
 
 - 钱包 UI 要求；
 - 传输层二维码渲染细节；

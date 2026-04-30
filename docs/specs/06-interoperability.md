@@ -1,14 +1,14 @@
-# WTV Interoperability
+# WTP Interoperability
 
-中文：[WTV 互通规则](06-interoperability.zh-CN.md)
+中文：[WTP 互通规则](06-interoperability.zh-CN.md)
 
 ## 1. Scope
 
-This document keeps the `WTV-v1` extension surface small enough for independent implementations to interoperate.
+This document keeps the `WTP-v1` extension surface small enough for independent implementations to interoperate.
 
 ## 2. Registered Identifiers
 
-`WTV-v1` defines these initial identifiers:
+`WTP-v1` defines these initial wire identifiers:
 
 | Namespace | Values |
 | --- | --- |
@@ -22,6 +22,9 @@ This document keeps the `WTV-v1` extension surface small enough for independent 
 | Trust metadata auth mode | `none`, `root_sig` |
 | Envelope signature algorithm | `Ed25519` |
 
+The `wtv` wire namespace is retained from earlier draft naming. It is normative
+for `WTP-v1` and does not change the public standard name.
+
 The envelope signature algorithm row applies to envelope-level and trust-metadata `COSE_Sign1` signatures. Transaction-level signatures follow each chain's native scheme and are specified by the corresponding profile or chain standard.
 
 New chain families, profiles, auth modes, and envelope signature algorithms require a specification update and conformance vectors before they are treated as interoperable.
@@ -29,8 +32,10 @@ New chain families, profiles, auth modes, and envelope signature algorithms requ
 ## 3. Versioning and Extensions
 
 The `wtv1:` QR prefix maps to envelope `schema = wtv` and `version = 1`.
+Future major versions MAY register a different prefix, but `WTP-v1`
+implementations MUST treat the identifiers above as the interoperable v1 set.
 
-A `WTV-v1` verifier MUST reject unsupported `schema`, `version`, `chain_family`, or `profile` values.
+A `WTP-v1` verifier MUST reject unsupported `schema`, `version`, `chain_family`, or `profile` values.
 
 Producers MUST NOT place security-sensitive semantics in unregistered fields. Verifiers MAY ignore unknown fields, but they MUST NOT display or act on ignored fields as verified data. A change that adds verified semantics requires either a registered profile update or a new profile identifier.
 
@@ -62,4 +67,4 @@ Conformance vectors are fixed files containing:
 - expected `payload_hash`;
 - the expected `ok` result for the reference verifier.
 
-An implementation claiming `WTV-v1` support SHOULD load these vectors directly instead of regenerating them from its own encoder.
+An implementation claiming `WTP-v1` support SHOULD load these vectors directly instead of regenerating them from its own encoder.

@@ -1,10 +1,10 @@
-# WTV Trust Model
+# WTP Trust Model
 
-中文：[WTV 信任模型](02-trust-model.zh-CN.md)
+中文：[WTP 信任模型](02-trust-model.zh-CN.md)
 
 ## 1. Trust Anchors
 
-`WTV` separates discovery from trust.
+`WTP` separates discovery from trust.
 
 - Domain names and GitHub repositories MAY be used for publication and audit.
 - They MUST NOT be treated as the final trust anchor.

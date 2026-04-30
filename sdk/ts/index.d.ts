@@ -164,7 +164,7 @@ export interface GeneratedQrSigningIdentity {
   certificate: QrSigningCertificate;
 }
 
-export declare class WtvSdk {
+export declare class WtpSdk {
   constructor(options?: { trustedRoots?: VendorRootRecord[] });
   trustedRoots: VendorRootRecord[];
   evm: Record<string, unknown>;
@@ -175,6 +175,8 @@ export declare class WtvSdk {
     requireSigned?: boolean;
   }): VerificationResult;
 }
+
+export declare class WtvSdk extends WtpSdk {}
 
 export declare function generateVendorRoot(options: {
   vendorId: string;
@@ -217,6 +219,7 @@ export declare function verifyTrustMetadata(metadataLike: TrustMetadata | Uint8A
   now?: string;
   requireSigned?: boolean;
 }): VerificationResult;
+export declare function buildWellKnownWtpUrls(origin: string): WellKnownUrls;
 export declare function buildWellKnownWtvUrls(origin: string): WellKnownUrls;
 
 export declare function normalizeSafeTransaction(txLike: Record<string, unknown>): SafeTransaction;

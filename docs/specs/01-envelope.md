@@ -1,10 +1,10 @@
-# WTV Envelope
+# WTP Envelope
 
-中文：[WTV Envelope](01-envelope.zh-CN.md)
+中文：[WTP Envelope](01-envelope.zh-CN.md)
 
 ## 1. Envelope Model
 
-A `WTV` payload is a CBOR document with this top-level shape:
+A `WTP` payload is a CBOR document with this top-level shape:
 
 ```text
 WtvEnvelope = {

@@ -1,10 +1,10 @@
-# WTV Calculation and Verification
+# WTP Calculation and Verification
 
-中文：[WTV 计算与校验](05-calculation-and-verification.zh-CN.md)
+中文：[WTP 计算与校验](05-calculation-and-verification.zh-CN.md)
 
 ## 1. Scope
 
-This document summarizes the concrete calculations performed by the `WTV-v1` reference SDK. Profile documents remain authoritative for chain-specific field requirements.
+This document summarizes the concrete calculations performed by the `WTP-v1` reference SDK. Profile documents remain authoritative for chain-specific field requirements.
 
 It covers:
 
@@ -31,7 +31,7 @@ The verifier decodes base64url, decodes CBOR, normalizes the envelope fields, an
 - `chain_family`
 - `profile`
 
-`WTV-v1` canonical CBOR follows RFC 8949 Section 4.2 deterministic encoding with definite lengths and shortest-form integers. This specification uses the length-first map key ordering described by RFC 8949 Section 4.2.3: map keys are ordered first by the length of their deterministic CBOR encoding, then by bytewise lexical order. Floating-point values, tags, and indefinite-length items are not used by `WTV-v1`.
+`WTP-v1` canonical CBOR follows RFC 8949 Section 4.2 deterministic encoding with definite lengths and shortest-form integers. This specification uses the length-first map key ordering described by RFC 8949 Section 4.2.3: map keys are ordered first by the length of their deterministic CBOR encoding, then by bytewise lexical order. Floating-point values, tags, and indefinite-length items are not used by `WTP-v1`.
 
 Fragmented QR text uses frames with the `wtv1/` prefix. Reassembly MUST preserve frame ordering before decoding the final `wtv1:` text.
 

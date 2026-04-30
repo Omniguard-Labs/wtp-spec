@@ -1,11 +1,11 @@
-# WTV Roadmap
+# WTP Roadmap
 
 ## 已完成
 
-- 规范主标题固定为 `Wallet Transaction Verification Standard`
-- 中文名固定为 `钱包交易验证标准`
-- 规范短编号固定为 `WTV`
-- 参考实现标识统一为 `wtv`
+- 规范主标题固定为 `Wallet Transaction Provenance Standard`
+- 中文名固定为 `钱包交易构造溯源标准`
+- 规范短编号固定为 `WTP`
+- v1 wire namespace 固定为 `wtv`
 - EVM profile 已支持 `legacy` / `eip2930` / `eip1559` / `eip4844` / `eip7702`
 - EVM Safe profile 已支持 SafeTxHash、EOA / `eth_sign` 离线签名恢复和 `execTransaction(...)` calldata 解析
 - Solana profile 已支持 `legacy` / `v0`
@@ -48,7 +48,7 @@
 4. 增加更细的错误码和诊断对象
 5. 增加 Solana Address Lookup Table 构造辅助函数
 6. 增加 Safe 状态快照输入和 EIP-1271 验证适配
-7. 推进 Go SDK 到可加载并验证 `test/vectors/wtv-v1-smoke.json`
+7. 推进 Go SDK 到可加载并验证 `test/vectors/wtp-v1-smoke.json`
 
 ## 测试 TODO
 

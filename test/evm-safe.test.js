@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
-  WtvSdk,
+  WtpSdk,
   evm,
   generateQrSigningIdentity,
   generateVendorRoot
@@ -29,7 +29,7 @@ const signingIdentity = generateQrSigningIdentity({
 });
 
 const trustedRoots = [vendorRoot.rootRecord];
-const sdk = new WtvSdk({ trustedRoots });
+const sdk = new WtpSdk({ trustedRoots });
 
 function buildSafeTx() {
   return {

@@ -1,5 +1,5 @@
 {
-  "schema": "wtv-conformance-vectors",
+  "schema": "wtp-conformance-vectors",
   "version": 1,
   "generated_from": "reference-sdk",
   "generated_at": "2026-04-30T00:00:00.000Z",

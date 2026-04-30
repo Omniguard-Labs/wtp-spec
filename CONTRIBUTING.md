@@ -1,6 +1,6 @@
 # Contributing
 
-WTV is a draft standard. Contributions are welcome from wallet vendors, security companies, researchers, and independent implementers.
+WTP is a draft standard. Contributions are welcome from wallet vendors, security companies, researchers, and independent implementers.
 
 ## How to Contribute
 

@@ -8,9 +8,13 @@ import {
   isoNow
 } from './crypto.js';
 
+// WTP-v1 keeps the earlier `wtv` wire namespace for draft compatibility.
 export const WTV_WELL_KNOWN_SUFFIX = 'wtv';
 export const WTV_METADATA_CBOR_PATH = '/.well-known/wtv/metadata.cbor';
 export const WTV_METADATA_JSON_PATH = '/.well-known/wtv/metadata.json';
+export const WTP_WELL_KNOWN_SUFFIX = WTV_WELL_KNOWN_SUFFIX;
+export const WTP_METADATA_CBOR_PATH = WTV_METADATA_CBOR_PATH;
+export const WTP_METADATA_JSON_PATH = WTV_METADATA_JSON_PATH;
 export const DEFAULT_TRUST_METADATA_VALIDITY_DAYS = 180;
 
 function normalizeText(value) {
@@ -245,6 +249,8 @@ export function buildWellKnownWtvUrls(origin) {
     metadataJsonUrl: `${base}${WTV_METADATA_JSON_PATH}`
   };
 }
+
+export const buildWellKnownWtpUrls = buildWellKnownWtvUrls;
 
 export function verifyTrustMetadata(
   metadataLike,

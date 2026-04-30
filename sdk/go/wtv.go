@@ -6,6 +6,10 @@ import (
 )
 
 const (
+	StandardName              = "Wallet Transaction Provenance Standard"
+	ShortIdentifier           = "WTP"
+	VersionLabel               = "WTP-v1"
+	WireNamespace             = "wtv"
 	EnvelopeSchema             = "wtv"
 	TrustMetadataSchema        = "wtv-trust"
 	QRTextPrefix               = "wtv1:"

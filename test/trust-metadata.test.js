@@ -2,8 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import {
+  WtpSdk,
   WtvSdk,
-  buildWellKnownWtvUrls,
+  buildWellKnownWtpUrls,
   createTrustMetadata,
   decodeTrustMetadata,
   encodeTrustMetadata,
@@ -71,9 +72,9 @@ test('trust metadata should encode, decode, and verify', () => {
   assert.equal(verification.certificateChecks[0].verified, true);
 });
 
-test('WtvSdk should verify trust metadata with preloaded roots', () => {
+test('WtpSdk should verify trust metadata with preloaded roots', () => {
   const metadata = buildMetadata();
-  const sdk = new WtvSdk({ trustedRoots });
+  const sdk = new WtpSdk({ trustedRoots });
   const verification = sdk.verifyTrustMetadata(metadata, {
     now: VERIFY_NOW,
     requireSigned: true
@@ -81,6 +82,12 @@ test('WtvSdk should verify trust metadata with preloaded roots', () => {
 
   assert.equal(verification.ok, true);
   assert.equal(verification.auth.verified, true);
+});
+
+test('WtvSdk should remain as a compatibility alias', () => {
+  const sdk = new WtvSdk({ trustedRoots });
+
+  assert.equal(sdk instanceof WtpSdk, true);
 });
 
 test('tampered trust metadata should fail signature verification', () => {
@@ -216,7 +223,7 @@ test('trust metadata diagnostic json should encode binary fields', () => {
 });
 
 test('well-known helper should build standard publication urls', () => {
-  const urls = buildWellKnownWtvUrls('https://wallet.example/');
+  const urls = buildWellKnownWtpUrls('https://wallet.example/');
 
   assert.equal(urls.suffix, 'wtv');
   assert.equal(urls.metadataCborUrl, 'https://wallet.example/.well-known/wtv/metadata.cbor');

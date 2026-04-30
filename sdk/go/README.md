@@ -1,8 +1,9 @@
-# WTV Go SDK
+# WTP Go SDK
 
-中文：[WTV Go SDK](#wtv-go-sdk-中文)
+中文：[WTP Go SDK](#wtp-go-sdk-中文)
 
-This package is the Go SDK scaffold for `WTV-v1`.
+This package is the Go SDK scaffold for `WTP-v1`. The package name remains
+`wtv` because `WTP-v1` keeps `wtv` as its wire namespace.
 
 Current scope:
 
@@ -18,11 +19,12 @@ Not yet implemented:
 - detached COSE_Sign1 signing and verification;
 - EVM, Safe, and Solana transaction profile parsing.
 
-## WTV Go SDK 中文
+## WTP Go SDK 中文
 
-English: [WTV Go SDK](#wtv-go-sdk)
+English: [WTP Go SDK](#wtp-go-sdk)
 
-该包是 `WTV-v1` 的 Go SDK 骨架。
+该包是 `WTP-v1` 的 Go SDK 骨架。包名继续使用 `wtv`，因为 `WTP-v1`
+保留 `wtv` 作为 wire namespace。
 
 当前范围：
 

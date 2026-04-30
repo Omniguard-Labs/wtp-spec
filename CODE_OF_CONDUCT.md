@@ -1,6 +1,6 @@
 # Code of Conduct
 
-WTV uses the Contributor Covenant Code of Conduct, version 2.1.
+WTP uses the Contributor Covenant Code of Conduct, version 2.1.
 
 ## Expected Behavior
 

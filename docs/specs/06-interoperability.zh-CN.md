@@ -1,14 +1,14 @@
-# WTV 互通规则
+# WTP 互通规则
 
-English: [WTV Interoperability](06-interoperability.md)
+English: [WTP Interoperability](06-interoperability.md)
 
 ## 1. 范围
 
-本文把 `WTV-v1` 的扩展面保持在足够小的范围内，确保独立实现可以互通。
+本文把 `WTP-v1` 的扩展面保持在足够小的范围内，确保独立实现可以互通。
 
 ## 2. 已注册标识符
 
-`WTV-v1` 定义以下初始标识符：
+`WTP-v1` 定义以下初始 wire 标识符：
 
 | 命名空间 | 值 |
 | --- | --- |
@@ -22,6 +22,9 @@ English: [WTV Interoperability](06-interoperability.md)
 | Trust metadata auth mode | `none`, `root_sig` |
 | Envelope 签名算法 | `Ed25519` |
 
+`wtv` wire namespace 沿用自早期 draft 命名。它是 `WTP-v1` 的规范性
+wire namespace，不改变对外标准名。
+
 Envelope 签名算法这一行只适用于 envelope-level 和 trust metadata 的 `COSE_Sign1` 签名。交易级签名遵循各链原生方案，由对应 profile 或链标准定义。
 
 新的 chain family、profile、auth mode 和 envelope 签名算法必须先更新规范并补充一致性测试向量，之后才能视为可互通。
@@ -29,8 +32,10 @@ Envelope 签名算法这一行只适用于 envelope-level 和 trust metadata 的
 ## 3. 版本与扩展
 
 `wtv1:` QR 前缀对应 envelope `schema = wtv` 和 `version = 1`。
+未来 major version 可以注册不同前缀，但 `WTP-v1` 实现必须把上表标识符
+视为可互通的 v1 集合。
 
-`WTV-v1` 验证器必须拒绝不支持的 `schema`、`version`、`chain_family` 或 `profile`。
+`WTP-v1` 验证器必须拒绝不支持的 `schema`、`version`、`chain_family` 或 `profile`。
 
 生产方不得把安全敏感语义放进未注册字段。验证器可以忽略未知字段，但不得把被忽略字段展示或处理为已验证数据。新增已验证语义时，必须更新已注册 profile，或使用新的 profile 标识符。
 
@@ -62,4 +67,4 @@ Envelope 签名算法这一行只适用于 envelope-level 和 trust metadata 的
 - 期望 `payload_hash`；
 - 参考验证器的期望 `ok` 结果。
 
-声称支持 `WTV-v1` 的实现应该直接加载这些向量，而不是用自己的 encoder 重新生成。
+声称支持 `WTP-v1` 的实现应该直接加载这些向量，而不是用自己的 encoder 重新生成。

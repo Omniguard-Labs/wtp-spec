@@ -1,12 +1,12 @@
 # Participation
 
-WTV welcomes participation from:
+WTP welcomes participation from:
 
 - wallet vendors;
 - security companies;
 - blockchain infrastructure providers;
 - independent researchers;
-- application teams that need transaction verification.
+- application teams that need transaction provenance checks.
 
 ## Current Draft Questions
 

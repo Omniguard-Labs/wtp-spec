@@ -1,6 +1,6 @@
-# WTV Solana Profile
+# WTP Solana Profile
 
-English: [WTV Solana Profile](20-solana-profile.md)
+English: [WTP Solana Profile](20-solana-profile.md)
 
 ## 1. Profile 标识
 

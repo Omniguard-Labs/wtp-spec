@@ -14,12 +14,12 @@ OmniArb packages. Runtime dependencies are intentionally small:
   handling, message/transaction serialization, versioned transactions, and
   Solana-compatible signature handling.
 - Node.js built-in `crypto`: used for Ed25519, SHA-256, and key encoding in the
-  WTV trust model.
+  WTP trust model.
 
 As of 2026-04-30, `npm audit --omit=dev` is clean for the EVM dependency path
 after the `ethers` v6 migration. The remaining moderate audit finding comes
 from `uuid` through `@solana/web3.js` RPC dependencies
-(`jayson` / `rpc-websockets`). The current WTV Solana code path does not
+(`jayson` / `rpc-websockets`). The current WTP Solana code path does not
 create RPC clients, but the packages are still part of the installed dependency
 graph.
 
@@ -44,11 +44,11 @@ English: [Dependency Review](#dependency-review)
   依赖树。
 - `@solana/web3.js@^1.98.4`：Solana profile 用它做 public key 处理、
   message/transaction 序列化、versioned transaction 和 Solana 兼容签名处理。
-- Node.js 内置 `crypto`：WTV 信任模型中用于 Ed25519、SHA-256 和密钥编码。
+- Node.js 内置 `crypto`：WTP 信任模型中用于 Ed25519、SHA-256 和密钥编码。
 
 截至 2026-04-30，迁移到 `ethers` v6 后，EVM 依赖路径上的审计问题已经清掉。
 `npm audit --omit=dev` 剩余的中危项来自 `@solana/web3.js` 的 RPC 依赖
-(`jayson` / `rpc-websockets`) 间接依赖 `uuid`。当前 WTV 的 Solana 代码路径不创建
+(`jayson` / `rpc-websockets`) 间接依赖 `uuid`。当前 WTP 的 Solana 代码路径不创建
 RPC client，但这些包仍会出现在安装依赖图中。
 
 建议策略：

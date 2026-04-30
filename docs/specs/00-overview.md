@@ -1,42 +1,47 @@
-# WTV Overview
+# WTP Overview
 
-中文：[WTV 概览](00-overview.zh-CN.md)
+中文：[WTP 概览](00-overview.zh-CN.md)
 
 Formal standard title:
 
-**Wallet Transaction Verification Standard**
+**Wallet Transaction Provenance Standard**
 
 Chinese standard title:
 
-**钱包交易验证标准**
+**钱包交易构造溯源标准**
+
+Subtitle:
+
+**Transaction construction provenance for wallet-generated envelopes**
 
 Short specification identifier:
 
-**WTV**
+**WTP**
 
 Version label:
 
-**WTV-v1**
+**WTP-v1**
 
 ## Status
 
 - Document status: Draft
-- Specification series: `WTV-v1`
+- Specification series: `WTP-v1`
 - SDK status: EVM, EVM Safe, and Solana implemented
 
 ## Scope
 
-`WTV` defines a wallet transaction cross-verification format for:
+`WTP` defines a wallet transaction construction provenance format for:
 
-- recovering the original transaction bytes from a portable payload,
-- verifying wallet-vendor origin information,
-- enabling independent simulation and anti-phishing checks on another device.
+- recovering the original wallet-generated transaction bytes from a portable payload,
+- verifying wallet-vendor origin information and envelope integrity,
+- enabling independent simulation, policy checks, and anti-phishing review on another device.
 
-The public name is intentionally short. The normative intent remains
-cross-verification / independent verification by a device or verifier that is
-separate from the wallet that created the payload.
+In this specification, provenance refers to the origin and construction context
+of a wallet-generated transaction payload. It does not mean on-chain fund-flow
+tracing. The normative intent is independent cross-checking by a device or
+verifier that is separate from the wallet that created the payload.
 
-`WTV` does not define:
+`WTP` does not define:
 
 - wallet UI requirements,
 - transport-layer QR image rendering details,

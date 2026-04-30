@@ -1,6 +1,6 @@
 # Security Policy
 
-WTV is security-sensitive because it defines wallet transaction verification behavior.
+WTP is security-sensitive because it defines wallet transaction construction provenance behavior.
 
 ## Reporting
 
@@ -26,4 +26,4 @@ Examples:
 
 ## Supported Versions
 
-Only the current draft branch is maintained until `WTV-v1` is frozen.
+Only the current draft branch is maintained until `WTP-v1` is frozen.

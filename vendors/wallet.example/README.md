@@ -2,7 +2,7 @@
 
 中文：[wallet.example](#walletexample-中文)
 
-This is a sample `WTV` vendor publication tree.
+This is a sample `WTP` vendor publication tree.
 
 Published material:
 
@@ -22,7 +22,7 @@ No private keys should be stored in this directory.
 
 English: [wallet.example](#walletexample)
 
-这是一个 `WTV` 厂商发布目录样例。
+这是一个 `WTP` 厂商发布目录样例。
 
 已发布材料：
 

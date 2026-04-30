@@ -1,16 +1,16 @@
-# WTV 发现与发布
+# WTP 发现与发布
 
-English: [WTV Discovery and Publishing](03-discovery-and-publishing.md)
+English: [WTP Discovery and Publishing](03-discovery-and-publishing.md)
 
 ## 1. 范围
 
-本文定义厂商如何发布 `WTV` 公开信任 metadata。
+本文定义厂商如何发布 `WTP` 公开信任 metadata。
 
 本文不定义本地信任锚安装流程。信任锚始终保留在验证器本地。
 
 ## 2. Well-Known 发布
 
-厂商应该在以下路径发布 `WTV` trust metadata：
+厂商应该在以下路径发布 `WTP` trust metadata：
 
 - `/.well-known/wtv/metadata.cbor`
 - `/.well-known/wtv/metadata.json`

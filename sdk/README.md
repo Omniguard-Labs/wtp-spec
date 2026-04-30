@@ -1,6 +1,6 @@
-# WTV SDKs
+# WTP SDKs
 
-中文：[WTV SDK](#wtv-sdk)
+中文：[WTP SDK](#wtp-sdk)
 
 This directory groups language-specific SDK entry points.
 
@@ -13,7 +13,7 @@ The normative behavior remains defined by [../docs/specs](../docs/specs). SDKs s
 
 ## 中文
 
-English: [WTV SDKs](#wtv-sdks)
+English: [WTP SDKs](#wtp-sdks)
 
 本目录按语言整理 SDK 入口。
 

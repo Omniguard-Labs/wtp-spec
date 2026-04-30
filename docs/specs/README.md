@@ -1,8 +1,8 @@
-# WTV Specification Documents
+# WTP Specification Documents
 
-中文：[WTV 规范文档](#wtv-规范文档)
+中文：[WTP 规范文档](#wtp-规范文档)
 
-The English documents are the primary draft text for `WTV-v1`. Chinese documents mirror the same structure for implementers and reviewers.
+The English documents are the primary draft text for `WTP-v1`. Chinese documents mirror the same structure for implementers and reviewers.
 
 ## English
 
@@ -14,15 +14,15 @@ The English documents are the primary draft text for `WTV-v1`. Chinese documents
 | [03 Discovery and Publishing](03-discovery-and-publishing.md) | `.well-known` trust metadata publishing and verifier behavior | [中文](03-discovery-and-publishing.zh-CN.md) |
 | [04 Chain Validation](04-chain-validation.md) | Common chain validation rules for EVM and Solana | [中文](04-chain-validation.zh-CN.md) |
 | [05 Calculation and Verification](05-calculation-and-verification.md) | Payload hash, origin signature, chain check, and signed transaction calculations | [中文](05-calculation-and-verification.zh-CN.md) |
-| [06 Interoperability](06-interoperability.md) | Registered identifiers, versioning, error names, and vector requirements | [中文](06-interoperability.zh-CN.md) |
+| [06 Interoperability](06-interoperability.md) | Wire identifiers, versioning, error names, and vector requirements | [中文](06-interoperability.zh-CN.md) |
 | [10 EVM Profile](10-evm-profile.md) | EVM transaction and Safe profile canonical payload rules | [中文](10-evm-profile.zh-CN.md) |
 | [20 Solana Profile](20-solana-profile.md) | Solana transaction profile and canonical payload rules | [中文](20-solana-profile.zh-CN.md) |
 
 ## 中文
 
-英文：[WTV Specification Documents](#wtv-specification-documents)
+英文：[WTP Specification Documents](#wtp-specification-documents)
 
-英文文档是 `WTV-v1` 的主要 draft 文本。中文文档保持相同结构，便于实现方和审阅方对照阅读。
+英文文档是 `WTP-v1` 的主要 draft 文本。中文文档保持相同结构，便于实现方和审阅方对照阅读。
 
 | 文档 | 说明 | English |
 | --- | --- | --- |
@@ -32,6 +32,6 @@ The English documents are the primary draft text for `WTV-v1`. Chinese documents
 | [03 发现与发布](03-discovery-and-publishing.zh-CN.md) | `.well-known` trust metadata 发布和验证器行为 | [English](03-discovery-and-publishing.md) |
 | [04 链校验](04-chain-validation.zh-CN.md) | EVM 和 Solana 的通用链校验规则 | [English](04-chain-validation.md) |
 | [05 计算与校验](05-calculation-and-verification.zh-CN.md) | payload hash、来源签名、链检查和已签名交易的计算规则 | [English](05-calculation-and-verification.md) |
-| [06 互通规则](06-interoperability.zh-CN.md) | 已注册标识符、版本规则、错误名和测试向量要求 | [English](06-interoperability.md) |
+| [06 互通规则](06-interoperability.zh-CN.md) | wire 标识符、版本规则、错误名和测试向量要求 | [English](06-interoperability.md) |
 | [10 EVM Profile](10-evm-profile.zh-CN.md) | EVM 交易和 Safe profile 与规范 payload 规则 | [English](10-evm-profile.md) |
 | [20 Solana Profile](20-solana-profile.zh-CN.md) | Solana 交易 profile 与规范 payload 规则 | [English](20-solana-profile.md) |

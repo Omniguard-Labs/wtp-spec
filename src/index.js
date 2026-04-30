@@ -15,6 +15,7 @@ import {
 } from './core/crypto.js';
 import {
   buildWellKnownWtvUrls,
+  buildWellKnownWtpUrls,
   createTrustMetadata,
   decodeTrustMetadata,
   encodeTrustMetadata,
@@ -28,7 +29,7 @@ export * from './core/index.js';
 export * from './profiles/evm/index.js';
 export { SolanaProfileSdk, solana } from './profiles/solana/index.js';
 
-export class WtvSdk {
+export class WtpSdk {
   constructor({ trustedRoots = [] } = {}) {
     this.trustedRoots = trustedRoots;
     this.evm = new EvmProfileSdk({ trustedRoots });
@@ -51,6 +52,7 @@ export class WtvSdk {
   static decodeTrustMetadata = decodeTrustMetadata;
   static verifyTrustMetadata = verifyTrustMetadata;
   static trustMetadataToDiagnosticJson = trustMetadataToDiagnosticJson;
+  static buildWellKnownWtpUrls = buildWellKnownWtpUrls;
   static buildWellKnownWtvUrls = buildWellKnownWtvUrls;
   static evm = evm;
   static solana = solana;
@@ -63,3 +65,5 @@ export class WtvSdk {
     });
   }
 }
+
+export class WtvSdk extends WtpSdk {}

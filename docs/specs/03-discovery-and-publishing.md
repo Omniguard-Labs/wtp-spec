@@ -1,16 +1,16 @@
-# WTV Discovery and Publishing
+# WTP Discovery and Publishing
 
-中文：[WTV 发现与发布](03-discovery-and-publishing.zh-CN.md)
+中文：[WTP 发现与发布](03-discovery-and-publishing.zh-CN.md)
 
 ## 1. Scope
 
-This document defines how vendors publish public trust metadata for `WTV`.
+This document defines how vendors publish public trust metadata for `WTP`.
 
 It does not define the local trust anchor installation process. Trust anchors remain verifier-local.
 
 ## 2. Well-Known Publishing
 
-Vendors SHOULD publish `WTV` trust metadata under:
+Vendors SHOULD publish `WTP` trust metadata under:
 
 - `/.well-known/wtv/metadata.cbor`
 - `/.well-known/wtv/metadata.json`
