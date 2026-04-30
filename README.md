@@ -10,17 +10,15 @@
 - Short specification identifier: `WTP`
 - Current version: `WTP-v1`
 
-Older code names are no longer kept in the repository.
-
 ## Specification Identifiers
 
-The public standard is named `WTP`. The current v1 wire namespace remains `wtv` so existing draft envelopes, metadata, and conformance vectors stay stable:
+`WTP-v1` uses these normative wire identifiers:
 
 - envelope schema: `wtv`
 - trust metadata schema: `wtv-trust`
 - QR text prefix: `wtv1:`
 - `.well-known` publishing path: `/.well-known/wtv/`
-- SDK entry point: `WtpSdk` (`WtvSdk` remains as a compatibility alias)
+- SDK entry point: `WtpSdk`
 
 ## Principle Overview
 
@@ -51,7 +49,6 @@ Detailed rules are documented in [docs/specs/05-calculation-and-verification.md]
 - Specification changes are discussed through issues, discussions, and pull requests.
 - Security companies, wallet vendors, and researchers may review wording and contribute test vectors.
 - Major changes are allowed before `WTP-v1` is frozen.
-- GitHub setup: [docs/github-setup.md](docs/github-setup.md)
 - Participation guide: [docs/participation.md](docs/participation.md)
 
 ## Implementation Status
@@ -73,20 +70,12 @@ Safe `evm-safe-v1` remains under the EVM chain family, but the signed object is 
 
 - [docs/specs/README.md](docs/specs/README.md)
   bilingual specification index
-- [docs/specs/05-calculation-and-verification.md](docs/specs/05-calculation-and-verification.md)
-  English calculation and verification rules
-- [docs/specs/05-calculation-and-verification.zh-CN.md](docs/specs/05-calculation-and-verification.zh-CN.md)
-  Chinese calculation and verification rules
-- [docs/specs/06-interoperability.md](docs/specs/06-interoperability.md)
-  wire identifiers, versioning, error names, and vector requirements
-- [docs/specs/06-interoperability.zh-CN.md](docs/specs/06-interoperability.zh-CN.md)
-  中文互通规则
 - [docs/appendix/references.md](docs/appendix/references.md)
   reference standards and official documents
 - [docs/dependencies.md](docs/dependencies.md)
-  dependency choices, audit status, and maintenance posture
+  dependency choices and maintenance posture
 - [docs/roadmap.md](docs/roadmap.md)
-  current TODO and roadmap
+  current roadmap
 - [CONTRIBUTING.md](CONTRIBUTING.md)
   contribution guide
 - [GOVERNANCE.md](GOVERNANCE.md)
@@ -125,10 +114,12 @@ npm install
 
 ```bash
 npm test
-(
-  cd sdk/go
-  go test ./...
-)
+```
+
+Optional Go scaffold check, when Go is installed:
+
+```bash
+(cd sdk/go && go test ./...)
 ```
 
 ## Quick Example
@@ -198,17 +189,15 @@ English: [README](#wtp)
 - 规范短编号：`WTP`
 - 当前版本：`WTP-v1`
 
-为避免混淆，仓库中不再保留旧代号。
-
 ## 规范标识
 
-对外标准名为 `WTP`。当前 v1 wire namespace 继续使用 `wtv`，以保持 draft envelope、metadata 和一致性测试向量稳定：
+`WTP-v1` 使用以下规范性 wire 标识符：
 
 - envelope schema：`wtv`
 - trust metadata schema：`wtv-trust`
 - QR 文本前缀：`wtv1:`
 - `.well-known` 发布路径：`/.well-known/wtv/`
-- SDK 入口：`WtpSdk`（`WtvSdk` 保留为兼容别名）
+- SDK 入口：`WtpSdk`
 
 ## 原理概览
 
@@ -239,7 +228,6 @@ English: [README](#wtp)
 - 规范变更通过 issue、discussion 和 PR 公开讨论
 - 安全公司、钱包公司和研究员可参与审阅与测试向量建设
 - 重大变更在 `WTP-v1` 冻结前允许调整
-- GitHub 设置参考：[docs/github-setup.md](docs/github-setup.md)
 - 参与方式参考：[docs/participation.md](docs/participation.md)
 
 ## 当前实现状态
@@ -261,20 +249,12 @@ Safe 的 `evm-safe-v1` 属于 EVM chain family，但签名对象是 SafeTx 而�
 
 - [docs/specs/README.md](docs/specs/README.md)
   中英文规范文档入口
-- [docs/specs/05-calculation-and-verification.md](docs/specs/05-calculation-and-verification.md)
-  English calculation and verification rules
-- [docs/specs/05-calculation-and-verification.zh-CN.md](docs/specs/05-calculation-and-verification.zh-CN.md)
-  中文计算与校验规则
-- [docs/specs/06-interoperability.md](docs/specs/06-interoperability.md)
-  wire identifiers, versioning, error names, and vector requirements
-- [docs/specs/06-interoperability.zh-CN.md](docs/specs/06-interoperability.zh-CN.md)
-  中文互通规则
 - [docs/appendix/references.md](docs/appendix/references.md)
   参考标准与官方文档
 - [docs/dependencies.md](docs/dependencies.md)
-  依赖选择、安全审计状态和维护策略
+  依赖选择和维护策略
 - [docs/roadmap.md](docs/roadmap.md)
-  当前 TODO 与路线图
+  当前路线图
 - [CONTRIBUTING.md](CONTRIBUTING.md)
   贡献指南
 - [GOVERNANCE.md](GOVERNANCE.md)
@@ -313,10 +293,12 @@ npm install
 
 ```bash
 npm test
-(
-  cd sdk/go
-  go test ./...
-)
+```
+
+如果本机已安装 Go，可额外运行 Go scaffold 测试：
+
+```bash
+(cd sdk/go && go test ./...)
 ```
 
 ## 快速示例

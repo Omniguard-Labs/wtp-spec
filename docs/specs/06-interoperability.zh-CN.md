@@ -6,7 +6,7 @@ English: [WTP Interoperability](06-interoperability.md)
 
 本文把 `WTP-v1` 的扩展面保持在足够小的范围内，确保独立实现可以互通。
 
-## 2. 已注册标识符
+## 2. Wire 标识符
 
 `WTP-v1` 定义以下初始 wire 标识符：
 
@@ -22,8 +22,8 @@ English: [WTP Interoperability](06-interoperability.md)
 | Trust metadata auth mode | `none`, `root_sig` |
 | Envelope 签名算法 | `Ed25519` |
 
-`wtv` wire namespace 沿用自早期 draft 命名。它是 `WTP-v1` 的规范性
-wire namespace，不改变对外标准名。
+`wtv` wire namespace 是 `WTP-v1` 的规范性 wire namespace；对外标准名为
+`WTP`。
 
 Envelope 签名算法这一行只适用于 envelope-level 和 trust metadata 的 `COSE_Sign1` 签名。交易级签名遵循各链原生方案，由对应 profile 或链标准定义。
 

@@ -6,7 +6,7 @@
 
 This document keeps the `WTP-v1` extension surface small enough for independent implementations to interoperate.
 
-## 2. Registered Identifiers
+## 2. Wire Identifiers
 
 `WTP-v1` defines these initial wire identifiers:
 
@@ -22,8 +22,8 @@ This document keeps the `WTP-v1` extension surface small enough for independent 
 | Trust metadata auth mode | `none`, `root_sig` |
 | Envelope signature algorithm | `Ed25519` |
 
-The `wtv` wire namespace is retained from earlier draft naming. It is normative
-for `WTP-v1` and does not change the public standard name.
+The `wtv` wire namespace is normative for `WTP-v1`; the public standard name is
+`WTP`.
 
 The envelope signature algorithm row applies to envelope-level and trust-metadata `COSE_Sign1` signatures. Transaction-level signatures follow each chain's native scheme and are specified by the corresponding profile or chain standard.
 
