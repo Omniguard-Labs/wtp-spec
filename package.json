@@ -1,0 +1,26 @@
+{
+  "name": "@omniarb/wtv-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "Reference SDK for the Wallet Transaction Verification Standard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wtv-standard/wtv-spec.git"
+  },
+  "homepage": "https://github.com/wtv-standard/wtv-spec#readme",
+  "bugs": {
+    "url": "https://github.com/wtv-standard/wtv-spec/issues"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --test test/**/*.test.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "ethers": "^6.16.0"
+  }
+}

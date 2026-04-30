@@ -1,0 +1,28 @@
+name: Security review note
+description: Report a non-sensitive security design concern.
+title: "[Security]: "
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include exploitable vulnerability details. Use private reporting for sensitive issues."
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Scenario
+      description: What security property is affected?
+    validations:
+      required: true
+  - type: textarea
+    id: affected
+    attributes:
+      label: Affected section
+      description: Link the spec section, SDK file, or test case.
+    validations:
+      required: true
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Suggested mitigation
+    validations:
+      required: false

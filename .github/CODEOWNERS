@@ -1,0 +1,5 @@
+# Enable after creating GitHub teams.
+# * @ORG/maintainers
+# /docs/specs/ @ORG/spec-reviewers
+# /src/ @ORG/sdk-reviewers
+# /test/ @ORG/interop-reviewers

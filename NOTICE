@@ -1,0 +1,11 @@
+WTV
+
+Copyright 2026 WTV contributors.
+
+Licensing:
+
+- Source code and reference SDK: Apache-2.0.
+- Specification documents under `docs/` and repository prose: CC-BY-4.0.
+- Test vectors, when added, should be published under CC0-1.0 unless noted.
+
+Contributions are accepted under the license of the file being modified.

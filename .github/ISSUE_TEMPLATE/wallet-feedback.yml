@@ -1,0 +1,24 @@
+name: Wallet implementation feedback
+description: Share implementation feedback from a wallet or signing flow.
+title: "[Wallet]: "
+labels: ["wallet", "interop"]
+body:
+  - type: input
+    id: wallet
+    attributes:
+      label: Wallet or implementation
+    validations:
+      required: false
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: What was hard to implement or unclear?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Requested change
+    validations:
+      required: false

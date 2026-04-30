@@ -1,0 +1,64 @@
+{
+  "schema": "wtv-trust",
+  "version": 1,
+  "vendor_id": "wallet.example",
+  "display_name": "Wallet Example",
+  "issued_at": "2026-04-30T00:00:00.000Z",
+  "expires_at": "2026-10-30T00:00:00.000Z",
+  "roots": [
+    {
+      "version": 1,
+      "record_type": "vendor_root",
+      "vendor_id": "wallet.example",
+      "display_name": "Wallet Example",
+      "algorithm": "Ed25519",
+      "public_key": {
+        "encoding": "base64url",
+        "value": "MCowBQYDK2VwAyEA5YSOd4LLYRDTIK0KKAY-4_IXXjvMgzzr3dB7d3Yo2bY"
+      },
+      "root_fingerprint": "sha256:d36db544d57cb734f89cd54663c6d5ea948a548c2e26ae9188bdcf553ba4fdb5",
+      "valid_from": "2026-04-30T00:00:00.000Z",
+      "valid_to": "2027-04-30T00:00:00.000Z",
+      "status": "active"
+    }
+  ],
+  "qr_signing_certs": [
+    {
+      "version": 1,
+      "cert_type": "qr_signing",
+      "vendor_id": "wallet.example",
+      "key_id": "qr-2026-01",
+      "algorithm": "Ed25519",
+      "public_key": {
+        "encoding": "base64url",
+        "value": "MCowBQYDK2VwAyEAoG1n--OiLF8XrMtkpRKwT9Lck50xJujg0MtjLOnLkfQ"
+      },
+      "issuer_root_fingerprint": "sha256:d36db544d57cb734f89cd54663c6d5ea948a548c2e26ae9188bdcf553ba4fdb5",
+      "valid_from": "2026-04-30T00:00:00.000Z",
+      "valid_to": "2026-10-30T00:00:00.000Z",
+      "status": "active",
+      "issuer_signature": {
+        "encoding": "base64url",
+        "value": "57Z2dMq_KZiOXuX-cByPTSLi57S0jlAHk0x2W4NlVAhvhEN-3g5wD_lAYZ1JeGWpdwOvJn--3XTSPknoF-K5Cg"
+      }
+    }
+  ],
+  "revocations": [],
+  "mirrors": [
+    {
+      "role": "primary",
+      "url": "https://wallet.example/.well-known/wtv/metadata.cbor",
+      "media_type": "application/cbor"
+    }
+  ],
+  "auth": {
+    "auth_mode": "root_sig",
+    "root_fingerprint": "sha256:d36db544d57cb734f89cd54663c6d5ea948a548c2e26ae9188bdcf553ba4fdb5",
+    "signing_key_id": "root",
+    "algorithm": "Ed25519",
+    "signature": {
+      "encoding": "base64url",
+      "value": "hEmiAScERHJvb3Sg9lhAcDeMCOh-BcFMmeignUDuC9pH9k5ITWVM2nVmde-myIRLnIa3DxmtIfqPGO3Ukax6AKXK_uKDiMYkvb-2FjSGBA"
+    }
+  }
+}
