@@ -36,7 +36,7 @@ export interface RevocationRecord {
 }
 
 export interface TrustMetadata {
-  schema: 'wtv-trust' | string;
+  schema: 'wtp-trust' | string;
   version: number;
   vendor_id: string;
   display_name: string;
@@ -135,7 +135,7 @@ export interface SafeEnvelopeTxRecord {
 }
 
 export interface SafeEnvelope {
-  schema: 'wtv' | string;
+  schema: 'wtp' | string;
   version: number;
   chain_family: 'evm' | string;
   profile: 'evm-safe-v1' | string;
@@ -175,8 +175,6 @@ export declare class WtpSdk {
     requireSigned?: boolean;
   }): VerificationResult;
 }
-
-export declare class WtvSdk extends WtpSdk {}
 
 export declare function generateVendorRoot(options: {
   vendorId: string;
@@ -220,7 +218,6 @@ export declare function verifyTrustMetadata(metadataLike: TrustMetadata | Uint8A
   requireSigned?: boolean;
 }): VerificationResult;
 export declare function buildWellKnownWtpUrls(origin: string): WellKnownUrls;
-export declare function buildWellKnownWtvUrls(origin: string): WellKnownUrls;
 
 export declare function normalizeSafeTransaction(txLike: Record<string, unknown>): SafeTransaction;
 export declare function encodeSafeTransaction(safeTxLike: Record<string, unknown>): Uint8Array;

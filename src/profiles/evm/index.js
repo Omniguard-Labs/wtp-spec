@@ -53,7 +53,7 @@ export * from './safe-envelope.js';
 function getEnvelopeProfile(envelopeLike) {
   if (typeof envelopeLike === 'string') {
     const normalized = envelopeLike.trim();
-    const body = normalized.startsWith('wtv1:') ? normalized.slice('wtv1:'.length) : normalized;
+    const body = normalized.startsWith('wtp1:') ? normalized.slice('wtp1:'.length) : normalized;
     return cborDecode(base64UrlDecode(body)).profile || '';
   }
   if (envelopeLike instanceof Uint8Array) {

@@ -14,7 +14,6 @@ import {
   publicKeyPemToDer
 } from './core/crypto.js';
 import {
-  buildWellKnownWtvUrls,
   buildWellKnownWtpUrls,
   createTrustMetadata,
   decodeTrustMetadata,
@@ -53,7 +52,6 @@ export class WtpSdk {
   static verifyTrustMetadata = verifyTrustMetadata;
   static trustMetadataToDiagnosticJson = trustMetadataToDiagnosticJson;
   static buildWellKnownWtpUrls = buildWellKnownWtpUrls;
-  static buildWellKnownWtvUrls = buildWellKnownWtvUrls;
   static evm = evm;
   static solana = solana;
 
@@ -65,5 +63,3 @@ export class WtpSdk {
     });
   }
 }
-
-export class WtvSdk extends WtpSdk {}

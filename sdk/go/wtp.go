@@ -1,4 +1,4 @@
-package wtv
+package wtp
 
 import (
 	"strings"
@@ -9,14 +9,14 @@ const (
 	StandardName              = "Wallet Transaction Provenance Standard"
 	ShortIdentifier           = "WTP"
 	VersionLabel               = "WTP-v1"
-	WireNamespace             = "wtv"
-	EnvelopeSchema             = "wtv"
-	TrustMetadataSchema        = "wtv-trust"
-	QRTextPrefix               = "wtv1:"
-	QRFramePrefix              = "wtv1/"
-	WellKnownSuffix            = "wtv"
-	MetadataCBORPath           = "/.well-known/wtv/metadata.cbor"
-	MetadataJSONPath           = "/.well-known/wtv/metadata.json"
+	WireNamespace             = "wtp"
+	EnvelopeSchema             = "wtp"
+	TrustMetadataSchema        = "wtp-trust"
+	QRTextPrefix               = "wtp1:"
+	QRFramePrefix              = "wtp1/"
+	WellKnownSuffix            = "wtp"
+	MetadataCBORPath           = "/.well-known/wtp/metadata.cbor"
+	MetadataJSONPath           = "/.well-known/wtp/metadata.json"
 	ChainFamilyEVM             = "evm"
 	ProfileEVMTxV1             = "evm-tx-v1"
 	ProfileEVMSafeV1           = "evm-safe-v1"
@@ -107,7 +107,7 @@ type WellKnownURLs struct {
 	MetadataJSONURL string
 }
 
-func BuildWellKnownWtvURLs(origin string) WellKnownURLs {
+func BuildWellKnownWtpURLs(origin string) WellKnownURLs {
 	base := strings.TrimRight(origin, "/")
 	return WellKnownURLs{
 		Suffix:          WellKnownSuffix,

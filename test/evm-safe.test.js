@@ -78,7 +78,7 @@ test('Safe sign-request envelope should round-trip under evm-safe-v1', () => {
     expectedSafe: safeTx.safe
   });
 
-  assert.equal(decoded.schema, 'wtv');
+  assert.equal(decoded.schema, 'wtp');
   assert.equal(decoded.chain_family, 'evm');
   assert.equal(decoded.profile, 'evm-safe-v1');
   assert.equal(decoded.tx.tx_kind, 'safe_sign_request');

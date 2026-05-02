@@ -14,10 +14,10 @@
 
 `WTP-v1` uses these normative wire identifiers:
 
-- envelope schema: `wtv`
-- trust metadata schema: `wtv-trust`
-- QR text prefix: `wtv1:`
-- `.well-known` publishing path: `/.well-known/wtv/`
+- envelope schema: `wtp`
+- trust metadata schema: `wtp-trust`
+- QR text prefix: `wtp1:`
+- `.well-known` publishing path: `/.well-known/wtp/`
 - SDK entry point: `WtpSdk`
 
 ## Principle Overview
@@ -74,6 +74,8 @@ Safe `evm-safe-v1` remains under the EVM chain family, but the signed object is 
   reference standards and official documents
 - [docs/dependencies.md](docs/dependencies.md)
   dependency choices and maintenance posture
+- [docs/integration/wallet.md](docs/integration/wallet.md)
+  wallet producer and verifier integration checklist
 - [docs/roadmap.md](docs/roadmap.md)
   current roadmap
 - [CONTRIBUTING.md](CONTRIBUTING.md)
@@ -99,10 +101,14 @@ Safe `evm-safe-v1` remains under the EVM chain family, but the signed object is 
   vendor-published trust material directory
 - [test/vectors/wtp-v1-smoke.json](test/vectors/wtp-v1-smoke.json)
   minimal conformance vectors
-- [vendors/wallet.example/.well-known/wtv/metadata.cbor](vendors/wallet.example/.well-known/wtv/metadata.cbor)
+- [vendors/wallet.example/.well-known/wtp/metadata.cbor](vendors/wallet.example/.well-known/wtp/metadata.cbor)
   sample normative trust metadata
-- [vendors/wallet.example/.well-known/wtv/metadata.json](vendors/wallet.example/.well-known/wtv/metadata.json)
+- [vendors/wallet.example/.well-known/wtp/metadata.json](vendors/wallet.example/.well-known/wtp/metadata.json)
   sample diagnostic trust metadata mirror
+- [vendors/omniguard.example/.well-known/wtp/metadata.cbor](vendors/omniguard.example/.well-known/wtp/metadata.cbor)
+  OmniGuard sample root and QR signing certificate metadata
+- [vendors/omniguard.example/.well-known/wtp/metadata.json](vendors/omniguard.example/.well-known/wtp/metadata.json)
+  OmniGuard sample diagnostic trust metadata mirror
 
 ## Install
 
@@ -193,10 +199,10 @@ English: [README](#wtp)
 
 `WTP-v1` 使用以下规范性 wire 标识符：
 
-- envelope schema：`wtv`
-- trust metadata schema：`wtv-trust`
-- QR 文本前缀：`wtv1:`
-- `.well-known` 发布路径：`/.well-known/wtv/`
+- envelope schema：`wtp`
+- trust metadata schema：`wtp-trust`
+- QR 文本前缀：`wtp1:`
+- `.well-known` 发布路径：`/.well-known/wtp/`
 - SDK 入口：`WtpSdk`
 
 ## 原理概览
@@ -253,6 +259,8 @@ Safe 的 `evm-safe-v1` 属于 EVM chain family，但签名对象是 SafeTx 而�
   参考标准与官方文档
 - [docs/dependencies.md](docs/dependencies.md)
   依赖选择和维护策略
+- [docs/integration/wallet.md](docs/integration/wallet.md)
+  钱包生产方与验证器接入检查清单
 - [docs/roadmap.md](docs/roadmap.md)
   当前路线图
 - [CONTRIBUTING.md](CONTRIBUTING.md)
@@ -278,10 +286,14 @@ Safe 的 `evm-safe-v1` 属于 EVM chain family，但签名对象是 SafeTx 而�
   厂商公开信任材料目录
 - [test/vectors/wtp-v1-smoke.json](test/vectors/wtp-v1-smoke.json)
   最小一致性测试向量
-- [vendors/wallet.example/.well-known/wtv/metadata.cbor](vendors/wallet.example/.well-known/wtv/metadata.cbor)
+- [vendors/wallet.example/.well-known/wtp/metadata.cbor](vendors/wallet.example/.well-known/wtp/metadata.cbor)
   规范 trust metadata 示例
-- [vendors/wallet.example/.well-known/wtv/metadata.json](vendors/wallet.example/.well-known/wtv/metadata.json)
+- [vendors/wallet.example/.well-known/wtp/metadata.json](vendors/wallet.example/.well-known/wtp/metadata.json)
   diagnostic trust metadata 镜像示例
+- [vendors/omniguard.example/.well-known/wtp/metadata.cbor](vendors/omniguard.example/.well-known/wtp/metadata.cbor)
+  OmniGuard root 与 QR 签名证书 metadata 示例
+- [vendors/omniguard.example/.well-known/wtp/metadata.json](vendors/omniguard.example/.well-known/wtp/metadata.json)
+  OmniGuard diagnostic trust metadata 镜像示例
 
 ## 安装
 

@@ -63,6 +63,7 @@ verifier that is separate from the wallet that created the payload.
 - [04 Chain Validation](04-chain-validation.md)
 - [05 Calculation and Verification](05-calculation-and-verification.md)
 - [06 Interoperability](06-interoperability.md)
+- [07 Worked Examples](07-worked-examples.md)
 - [10 EVM Profile](10-evm-profile.md)
 - [20 Solana Profile](20-solana-profile.md)
 - [References](../appendix/references.md)

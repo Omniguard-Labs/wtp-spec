@@ -1,0 +1,69 @@
+{
+  "schema": "wtp-trust",
+  "version": 1,
+  "vendor_id": "omniguard.example",
+  "display_name": "OmniGuard Example",
+  "issued_at": "2026-05-01T00:00:00.000Z",
+  "expires_at": "2026-10-28T00:00:00.000Z",
+  "roots": [
+    {
+      "version": 1,
+      "record_type": "vendor_root",
+      "vendor_id": "omniguard.example",
+      "display_name": "OmniGuard Example",
+      "algorithm": "Ed25519",
+      "public_key": {
+        "encoding": "base64url",
+        "value": "MCowBQYDK2VwAyEALKGGrWJ8m4ZqTDfi3VrzXgZdCh1diChxlHl-JDaiouk"
+      },
+      "root_fingerprint": "sha256:1a2d031160ff8e56e2478850d2341b5b1bbcaad592692fe3b380b1087bd4a9a8",
+      "valid_from": "2026-05-01T00:00:00.000Z",
+      "valid_to": "2027-05-01T00:00:00.000Z",
+      "status": "active"
+    }
+  ],
+  "qr_signing_certs": [
+    {
+      "version": 1,
+      "cert_type": "qr_signing",
+      "vendor_id": "omniguard.example",
+      "key_id": "qr-2026-01",
+      "algorithm": "Ed25519",
+      "public_key": {
+        "encoding": "base64url",
+        "value": "MCowBQYDK2VwAyEASBTla--7BwWCIE5FMIN-pd04MvnRfhMKwoAxmAXJSwE"
+      },
+      "issuer_root_fingerprint": "sha256:1a2d031160ff8e56e2478850d2341b5b1bbcaad592692fe3b380b1087bd4a9a8",
+      "valid_from": "2026-05-01T00:00:00.000Z",
+      "valid_to": "2026-10-28T00:00:00.000Z",
+      "status": "active",
+      "issuer_signature": {
+        "encoding": "base64url",
+        "value": "OzIbTJXLHShhLl-8558VOpUSWw2YGZV8045yH0ztZGLgqGiuiL6aFowepctMyk8L41bFfjaG7R6N48mzP12gDQ"
+      }
+    }
+  ],
+  "revocations": [],
+  "mirrors": [
+    {
+      "role": "primary",
+      "url": "https://omniguard.example/.well-known/wtp/metadata.cbor",
+      "media_type": "application/cbor"
+    },
+    {
+      "role": "diagnostic",
+      "url": "https://omniguard.example/.well-known/wtp/metadata.json",
+      "media_type": "application/json"
+    }
+  ],
+  "auth": {
+    "auth_mode": "root_sig",
+    "root_fingerprint": "sha256:1a2d031160ff8e56e2478850d2341b5b1bbcaad592692fe3b380b1087bd4a9a8",
+    "signing_key_id": "root",
+    "algorithm": "Ed25519",
+    "signature": {
+      "encoding": "base64url",
+      "value": "hEmiAScERHJvb3Sg9lhAqD3CeQwhOvkrChgw_b0vIFxuabO2RollWh4ug3sEGDtCP2hRZugwrdRlsG-ADIMxmxuNORGG7FW4IH8JGyZBAw"
+    }
+  }
+}
