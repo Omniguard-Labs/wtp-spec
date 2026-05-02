@@ -21,19 +21,19 @@ A verifier receives either an object, CBOR bytes, or QR text.
 The current QR text form is:
 
 ```text
-wtv1: base64url( CBOR( WtvEnvelope ) )
+wtp1: base64url( CBOR( WtpEnvelope ) )
 ```
 
 The verifier decodes base64url, decodes CBOR, normalizes the envelope fields, and validates:
 
-- `schema = wtv`
+- `schema = wtp`
 - `version = 1`
 - `chain_family`
 - `profile`
 
 `WTP-v1` canonical CBOR follows RFC 8949 Section 4.2 deterministic encoding with definite lengths and shortest-form integers. This specification uses the length-first map key ordering described by RFC 8949 Section 4.2.3: map keys are ordered first by the length of their deterministic CBOR encoding, then by bytewise lexical order. Floating-point values, tags, and indefinite-length items are not used by `WTP-v1`.
 
-Fragmented QR text uses frames with the `wtv1/` prefix. Reassembly MUST preserve frame ordering before decoding the final `wtv1:` text.
+Fragmented QR text uses frames with the `wtp1/` prefix. Reassembly MUST preserve frame ordering before decoding the final `wtp1:` text. The exact frame format is defined in [01 Envelope](01-envelope.md#51-fragment-encoding).
 
 ## 3. Payload Hash Calculation
 
@@ -124,7 +124,7 @@ The validation chain is:
 Vendor Root -> QR Signing Certificate -> detached COSE_Sign1 over tx
 ```
 
-Remote metadata from HTTPS, GitHub, or `/.well-known/wtv/` is distribution material. The trust anchor remains the verifier's locally trusted root fingerprint or root certificate.
+Remote metadata from HTTPS, GitHub, or `/.well-known/wtp/` is distribution material. The trust anchor remains the verifier's locally trusted root fingerprint or root certificate.
 
 Default validity windows in the reference SDK are intentionally short and explicit:
 
@@ -132,7 +132,7 @@ Default validity windows in the reference SDK are intentionally short and explic
 - QR signing certificate: 180 days;
 - trust metadata: 180 days.
 
-During trust metadata verification, `issued_at` and `expires_at` must both be present and valid for verifier time. Active revocations invalidate matching roots or QR signing certificates before certificate checks are accepted.
+During trust metadata verification, `issued_at` and `expires_at` MUST both be present and valid for verifier time. Active revocations invalidate matching roots or QR signing certificates before certificate checks are accepted.
 
 ## 6. Chain Target Validation
 
@@ -189,4 +189,4 @@ For signed Solana transactions, the verifier:
 
 A successful verification requires the envelope structure, profile, payload hash, chain target, and profile-specific transaction checks to pass.
 
-When `requireVerified = true`, origin verification must also pass. When `requireVerified = false`, an unauthenticated envelope can still be `ok` if the transaction-byte and chain checks pass.
+When `requireVerified = true`, origin verification MUST also pass. When `requireVerified = false`, an unauthenticated envelope can still be `ok` if the transaction-byte and chain checks pass.

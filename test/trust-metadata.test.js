@@ -3,7 +3,6 @@ import assert from 'node:assert/strict';
 
 import {
   WtpSdk,
-  WtvSdk,
   buildWellKnownWtpUrls,
   createTrustMetadata,
   decodeTrustMetadata,
@@ -43,7 +42,7 @@ function buildMetadata(overrides = {}) {
     mirrors: [
       {
         role: 'primary',
-        url: 'https://wallet.example/.well-known/wtv/metadata.cbor',
+        url: 'https://wallet.example/.well-known/wtp/metadata.cbor',
         media_type: 'application/cbor'
       }
     ],
@@ -64,7 +63,7 @@ test('trust metadata should encode, decode, and verify', () => {
     requireSigned: true
   });
 
-  assert.equal(decoded.schema, 'wtv-trust');
+  assert.equal(decoded.schema, 'wtp-trust');
   assert.equal(decoded.vendor_id, 'wallet.example');
   assert.equal(decoded.auth.auth_mode, 'root_sig');
   assert.equal(verification.ok, true);
@@ -84,15 +83,9 @@ test('WtpSdk should verify trust metadata with preloaded roots', () => {
   assert.equal(verification.auth.verified, true);
 });
 
-test('WtvSdk should remain as a compatibility alias', () => {
-  const sdk = new WtvSdk({ trustedRoots });
-
-  assert.equal(sdk instanceof WtpSdk, true);
-});
-
 test('tampered trust metadata should fail signature verification', () => {
   const metadata = decodeTrustMetadata(encodeTrustMetadata(buildMetadata()));
-  metadata.mirrors[0].url = 'https://evil.example/.well-known/wtv/metadata.cbor';
+  metadata.mirrors[0].url = 'https://evil.example/.well-known/wtp/metadata.cbor';
 
   const verification = verifyTrustMetadata(metadata, {
     trustedRoots,
@@ -216,7 +209,7 @@ test('trust metadata diagnostic json should encode binary fields', () => {
   const metadata = buildMetadata();
   const diagnostic = trustMetadataToDiagnosticJson(metadata);
 
-  assert.equal(diagnostic.schema, 'wtv-trust');
+  assert.equal(diagnostic.schema, 'wtp-trust');
   assert.equal(diagnostic.roots[0].public_key.encoding, 'base64url');
   assert.equal(diagnostic.qr_signing_certs[0].issuer_signature.encoding, 'base64url');
   assert.equal(diagnostic.auth.signature.encoding, 'base64url');
@@ -225,7 +218,7 @@ test('trust metadata diagnostic json should encode binary fields', () => {
 test('well-known helper should build standard publication urls', () => {
   const urls = buildWellKnownWtpUrls('https://wallet.example/');
 
-  assert.equal(urls.suffix, 'wtv');
-  assert.equal(urls.metadataCborUrl, 'https://wallet.example/.well-known/wtv/metadata.cbor');
-  assert.equal(urls.metadataJsonUrl, 'https://wallet.example/.well-known/wtv/metadata.json');
+  assert.equal(urls.suffix, 'wtp');
+  assert.equal(urls.metadataCborUrl, 'https://wallet.example/.well-known/wtp/metadata.cbor');
+  assert.equal(urls.metadataJsonUrl, 'https://wallet.example/.well-known/wtp/metadata.json');
 });

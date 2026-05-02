@@ -1,10 +1,10 @@
 {
-  "schema": "wtv-trust",
+  "schema": "wtp-trust",
   "version": 1,
   "vendor_id": "wallet.example",
   "display_name": "Wallet Example",
   "issued_at": "2026-04-30T00:00:00.000Z",
-  "expires_at": "2026-10-30T00:00:00.000Z",
+  "expires_at": "2026-10-27T00:00:00.000Z",
   "roots": [
     {
       "version": 1,
@@ -14,9 +14,9 @@
       "algorithm": "Ed25519",
       "public_key": {
         "encoding": "base64url",
-        "value": "MCowBQYDK2VwAyEA1zgWoo3GNDT-rnDHASPJ5Wy5H0JohBsOF0-L8TkUWzo"
+        "value": "MCowBQYDK2VwAyEA-CYmcFl1sn-yrSGYjPVesxkqbQFyiBbvhbKW2KjYhw0"
       },
-      "root_fingerprint": "sha256:43579aa0e0783b4c38c8700c5b494821b47c8c845bea8dd435e070345c19b8c0",
+      "root_fingerprint": "sha256:a6609dbdee61fdb7a9536bcd23f9eda4305627dfdb7dfc436098fe1548029023",
       "valid_from": "2026-04-30T00:00:00.000Z",
       "valid_to": "2027-04-30T00:00:00.000Z",
       "status": "active"
@@ -31,15 +31,15 @@
       "algorithm": "Ed25519",
       "public_key": {
         "encoding": "base64url",
-        "value": "MCowBQYDK2VwAyEA0_uCIdWVH3gxFn7ifbbpzPkvHY9Snq7mNtS4PhC6mW0"
+        "value": "MCowBQYDK2VwAyEAt3Tk8yFt-Vk5GQa88OZ4AdY11jiBMJAbmV45xyIRdqU"
       },
-      "issuer_root_fingerprint": "sha256:43579aa0e0783b4c38c8700c5b494821b47c8c845bea8dd435e070345c19b8c0",
+      "issuer_root_fingerprint": "sha256:a6609dbdee61fdb7a9536bcd23f9eda4305627dfdb7dfc436098fe1548029023",
       "valid_from": "2026-04-30T00:00:00.000Z",
-      "valid_to": "2026-10-30T00:00:00.000Z",
+      "valid_to": "2026-10-27T00:00:00.000Z",
       "status": "active",
       "issuer_signature": {
         "encoding": "base64url",
-        "value": "w125M5yINfYxtdwzazp-mWVf5NEhc5ZGuPsaNeYB_jKgnXwGYblRJD-9IAg1GVSUi_qn3JLZRaGoJUBD-LrhCQ"
+        "value": "79LEN2PcBxPaYo4D8P0COZdqbYnB3ry1QWGzIXFAjvc0t3dDNMNYsm9TLeFbRTNgfeOH080orPcNnv1S0Q1mAA"
       }
     }
   ],
@@ -47,18 +47,18 @@
   "mirrors": [
     {
       "role": "primary",
-      "url": "https://wallet.example/.well-known/wtv/metadata.cbor",
+      "url": "https://wallet.example/.well-known/wtp/metadata.cbor",
       "media_type": "application/cbor"
     }
   ],
   "auth": {
     "auth_mode": "root_sig",
-    "root_fingerprint": "sha256:43579aa0e0783b4c38c8700c5b494821b47c8c845bea8dd435e070345c19b8c0",
+    "root_fingerprint": "sha256:a6609dbdee61fdb7a9536bcd23f9eda4305627dfdb7dfc436098fe1548029023",
     "signing_key_id": "root",
     "algorithm": "Ed25519",
     "signature": {
       "encoding": "base64url",
-      "value": "hEmiAScERHJvb3Sg9lhA0wcJP7ducEemeCAI-x91zJ4bFNBxQxeA2fhKOxgcgNqcMy40aVGvHSSA-caBwrVAIHr4Z_aJ22LwtgkOQJWYCg"
+      "value": "hEmiAScERHJvb3Sg9lhA2PI17X7x-DpX-GMZ54zNu5vZj81BMZnx-BJ6c9w5VqOE1W6YeTR6M4MwGfRlpD-WaxpFSjMbXxejuJO85nYKBw"
     }
   }
 }

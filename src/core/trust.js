@@ -8,13 +8,9 @@ import {
   isoNow
 } from './crypto.js';
 
-// WTP-v1 keeps the earlier `wtv` wire namespace for draft compatibility.
-export const WTV_WELL_KNOWN_SUFFIX = 'wtv';
-export const WTV_METADATA_CBOR_PATH = '/.well-known/wtv/metadata.cbor';
-export const WTV_METADATA_JSON_PATH = '/.well-known/wtv/metadata.json';
-export const WTP_WELL_KNOWN_SUFFIX = WTV_WELL_KNOWN_SUFFIX;
-export const WTP_METADATA_CBOR_PATH = WTV_METADATA_CBOR_PATH;
-export const WTP_METADATA_JSON_PATH = WTV_METADATA_JSON_PATH;
+export const WTP_WELL_KNOWN_SUFFIX = 'wtp';
+export const WTP_METADATA_CBOR_PATH = '/.well-known/wtp/metadata.cbor';
+export const WTP_METADATA_JSON_PATH = '/.well-known/wtp/metadata.json';
 export const DEFAULT_TRUST_METADATA_VALIDITY_DAYS = 180;
 
 function normalizeText(value) {
@@ -122,7 +118,7 @@ function normalizeSigningCertificate(certificate) {
 
 function canonicalizeTrustBody(record) {
   return {
-    schema: normalizeText(record?.schema || 'wtv-trust'),
+    schema: normalizeText(record?.schema || 'wtp-trust'),
     version: Number(record?.version || 1),
     vendor_id: normalizeText(record?.vendor_id),
     display_name: normalizeText(record?.display_name),
@@ -192,7 +188,7 @@ export function createTrustMetadata({
 }) {
   const normalizedIssuedAt = String(issuedAt || isoNow());
   const body = canonicalizeTrustBody({
-    schema: 'wtv-trust',
+    schema: 'wtp-trust',
     version: 1,
     vendor_id: vendorId,
     display_name: displayName,
@@ -241,16 +237,14 @@ export function trustMetadataToDiagnosticJson(metadata) {
   return encodeDiagnosticValue(normalizeTrustMetadata(metadata));
 }
 
-export function buildWellKnownWtvUrls(origin) {
+export function buildWellKnownWtpUrls(origin) {
   const base = String(origin || '').replace(/\/+$/, '');
   return {
-    suffix: WTV_WELL_KNOWN_SUFFIX,
-    metadataCborUrl: `${base}${WTV_METADATA_CBOR_PATH}`,
-    metadataJsonUrl: `${base}${WTV_METADATA_JSON_PATH}`
+    suffix: WTP_WELL_KNOWN_SUFFIX,
+    metadataCborUrl: `${base}${WTP_METADATA_CBOR_PATH}`,
+    metadataJsonUrl: `${base}${WTP_METADATA_JSON_PATH}`
   };
 }
-
-export const buildWellKnownWtpUrls = buildWellKnownWtvUrls;
 
 export function verifyTrustMetadata(
   metadataLike,
@@ -261,7 +255,7 @@ export function verifyTrustMetadata(
       ? decodeTrustMetadata(metadataLike)
       : normalizeTrustMetadata(metadataLike);
 
-  const schemaValid = metadata.schema === 'wtv-trust';
+  const schemaValid = metadata.schema === 'wtp-trust';
   const versionValid = metadata.version === 1;
   const vendorDeclared = Boolean(metadata.vendor_id);
   const metadataFresh =

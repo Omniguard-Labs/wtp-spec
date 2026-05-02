@@ -21,19 +21,19 @@ English: [WTP Calculation and Verification](05-calculation-and-verification.md)
 当前 QR 文本格式为：
 
 ```text
-wtv1: base64url( CBOR( WtvEnvelope ) )
+wtp1: base64url( CBOR( WtpEnvelope ) )
 ```
 
 验证器先解码 base64url，再解码 CBOR，随后规范化 envelope 字段并校验：
 
-- `schema = wtv`
+- `schema = wtp`
 - `version = 1`
 - `chain_family`
 - `profile`
 
 `WTP-v1` canonical CBOR 遵循 RFC 8949 第 4.2 节的确定性编码，使用定长长度和最短整数形式。本规范使用 RFC 8949 第 4.2.3 节描述的 length-first map key 排序：先按 key 的确定性 CBOR 编码长度排序，再按字节词典序排序。`WTP-v1` 不使用浮点数、tag 或不定长 item。
 
-分片 QR 文本使用 `wtv1/` 前缀。重新组装时必须保留帧顺序，然后再解码最终的 `wtv1:` 文本。
+分片 QR 文本使用 `wtp1/` 前缀。重新组装时必须保留帧顺序，然后再解码最终的 `wtp1:` 文本。具体 frame 格式由 [01 Envelope](01-envelope.zh-CN.md#51-分片编码) 定义。
 
 ## 3. Payload Hash 计算
 
@@ -125,7 +125,7 @@ QR 签名证书包含 QR 签名公钥，并由厂商根对规范化证书 payloa
 Vendor Root -> QR Signing Certificate -> detached COSE_Sign1 over tx
 ```
 
-来自 HTTPS、GitHub 或 `/.well-known/wtv/` 的远程 metadata 只是分发材料。最终信任锚仍然是验证器本地信任的根指纹或根证书。
+来自 HTTPS、GitHub 或 `/.well-known/wtp/` 的远程 metadata 只是分发材料。最终信任锚仍然是验证器本地信任的根指纹或根证书。
 
 参考 SDK 的默认有效期窗口保持短且明确：
 

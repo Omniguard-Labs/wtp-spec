@@ -1,17 +1,17 @@
-package wtv
+package wtp
 
 import "testing"
 
-func TestBuildWellKnownWtvURLs(t *testing.T) {
-	urls := BuildWellKnownWtvURLs("https://wallet.example/")
+func TestBuildWellKnownWtpURLs(t *testing.T) {
+	urls := BuildWellKnownWtpURLs("https://wallet.example/")
 
 	if urls.Suffix != WellKnownSuffix {
 		t.Fatalf("suffix = %q", urls.Suffix)
 	}
-	if urls.MetadataCBORURL != "https://wallet.example/.well-known/wtv/metadata.cbor" {
+	if urls.MetadataCBORURL != "https://wallet.example/.well-known/wtp/metadata.cbor" {
 		t.Fatalf("metadata CBOR URL = %q", urls.MetadataCBORURL)
 	}
-	if urls.MetadataJSONURL != "https://wallet.example/.well-known/wtv/metadata.json" {
+	if urls.MetadataJSONURL != "https://wallet.example/.well-known/wtp/metadata.json" {
 		t.Fatalf("metadata JSON URL = %q", urls.MetadataJSONURL)
 	}
 }

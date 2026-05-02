@@ -161,7 +161,7 @@ for (const txCase of buildTxCases()) {
       requireVerified: true
     });
 
-    assert.equal(decoded.schema, 'wtv');
+    assert.equal(decoded.schema, 'wtp');
     assert.equal(decoded.chain_family, 'evm');
     assert.equal(decoded.profile, 'evm-tx-v1');
     assert.equal(decoded.tx.tx_kind, 'sign_request');
@@ -195,7 +195,7 @@ for (const txCase of buildTxCases()) {
       requireVerified: true
     });
 
-    assert.equal(decoded.schema, 'wtv');
+    assert.equal(decoded.schema, 'wtp');
     assert.equal(decoded.chain_family, 'evm');
     assert.equal(decoded.profile, 'evm-tx-v1');
     assert.equal(decoded.tx.tx_kind, 'signed_tx');

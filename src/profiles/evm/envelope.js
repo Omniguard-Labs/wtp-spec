@@ -5,8 +5,8 @@ import { base64UrlDecode, base64UrlEncode, isoNow } from '../../core/crypto.js';
 import { utils } from './ethers-utils.js';
 import { buildUnsignedTransaction, parseEvmTransaction, signEvmTransaction } from './tx.js';
 
-const QR_TEXT_PREFIX = 'wtv1:';
-const QR_FRAME_PREFIX = 'wtv1/';
+const QR_TEXT_PREFIX = 'wtp1:';
+const QR_FRAME_PREFIX = 'wtp1/';
 
 function normalizeAddressForEnvelope(value) {
   return value ? utils.getAddress(String(value)).toLowerCase() : '';
@@ -130,7 +130,7 @@ function buildAuthRecord({
 
 function normalizeEnvelopeRecord(envelope) {
   return {
-    schema: normalizeText(envelope.schema || 'wtv'),
+    schema: normalizeText(envelope.schema || 'wtp'),
     version: Number(envelope.version || 1),
     chain_family: normalizeText(envelope.chain_family || 'evm'),
     profile: normalizeText(envelope.profile || 'evm-tx-v1'),
@@ -163,7 +163,7 @@ export function createSignRequestEnvelope({
     simBlock
   });
   return normalizeEnvelopeRecord({
-    schema: 'wtv',
+    schema: 'wtp',
     version: 1,
     chain_family: 'evm',
     profile: 'evm-tx-v1',
@@ -198,7 +198,7 @@ export function createSignedTxEnvelope({
     simBlock
   });
   return normalizeEnvelopeRecord({
-    schema: 'wtv',
+    schema: 'wtp',
     version: 1,
     chain_family: 'evm',
     profile: 'evm-tx-v1',
@@ -333,7 +333,7 @@ export function verifyEnvelope(
   const txRecord = envelope.tx;
   const txPayloadBytes = getTxBytes(txRecord);
   const parsedTx = parseEvmTransaction(txPayloadBytes);
-  const schemaValid = envelope.schema === 'wtv';
+  const schemaValid = envelope.schema === 'wtp';
   const versionValid = envelope.version === 1;
   const chainFamilyValid = envelope.chain_family === 'evm';
   const profileValid = envelope.profile === 'evm-tx-v1';

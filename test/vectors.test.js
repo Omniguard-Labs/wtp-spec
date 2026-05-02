@@ -54,7 +54,7 @@ test('conformance vectors should decode and verify without regeneration', () => 
     }
 
     assert.equal(hexOf(encoded), vector.envelope_cbor_hex);
-    assert.equal(decoded.schema, 'wtv');
+    assert.equal(decoded.schema, 'wtp');
     assert.equal(decoded.chain_family, vector.chain_family);
     assert.equal(decoded.profile, vector.profile);
     assert.equal(decoded.tx.tx_kind, vector.tx_kind);
@@ -65,10 +65,10 @@ test('conformance vectors should decode and verify without regeneration', () => 
 
 test('well-known metadata CBOR sample should match JSON mirror and vector', () => {
   const cborBytes = new Uint8Array(
-    fs.readFileSync('vendors/wallet.example/.well-known/wtv/metadata.cbor')
+    fs.readFileSync('vendors/wallet.example/.well-known/wtp/metadata.cbor')
   );
   const jsonMirror = JSON.parse(
-    fs.readFileSync('vendors/wallet.example/.well-known/wtv/metadata.json', 'utf8')
+    fs.readFileSync('vendors/wallet.example/.well-known/wtp/metadata.json', 'utf8')
   );
   const metadata = decodeTrustMetadata(cborBytes);
   const verification = verifyTrustMetadata(metadata, {
@@ -85,4 +85,32 @@ test('well-known metadata CBOR sample should match JSON mirror and vector', () =
   assert.equal(metadata.vendor_id, vectors.trust_metadata.vendor_id);
   assert.equal(metadata.auth.auth_mode, vectors.trust_metadata.auth_mode);
   assert.equal(verification.ok, vectors.trust_metadata.expected_ok);
+});
+
+test('omniguard example metadata should match JSON mirror and verify', () => {
+  const cborBytes = new Uint8Array(
+    fs.readFileSync('vendors/omniguard.example/.well-known/wtp/metadata.cbor')
+  );
+  const jsonMirror = JSON.parse(
+    fs.readFileSync('vendors/omniguard.example/.well-known/wtp/metadata.json', 'utf8')
+  );
+  const metadata = decodeTrustMetadata(cborBytes);
+  const verification = verifyTrustMetadata(metadata, {
+    trustedRoots: metadata.roots,
+    now: metadata.issued_at,
+    requireSigned: true
+  });
+
+  assert.equal(hexOf(encodeTrustMetadata(metadata)), hexOf(cborBytes));
+  assert.deepEqual(trustMetadataToDiagnosticJson(metadata), jsonMirror);
+  assert.equal(metadata.vendor_id, 'omniguard.example');
+  assert.equal(metadata.roots[0].record_type, 'vendor_root');
+  assert.equal(metadata.qr_signing_certs[0].cert_type, 'qr_signing');
+  assert.equal(
+    metadata.qr_signing_certs[0].issuer_root_fingerprint,
+    metadata.roots[0].root_fingerprint
+  );
+  assert.equal(verification.ok, true);
+  assert.equal(verification.auth.verified, true);
+  assert.equal(verification.certificateChecks[0].verified, true);
 });

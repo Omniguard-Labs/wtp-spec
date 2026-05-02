@@ -100,6 +100,25 @@ Authorization tuple 为：
 `evm-safe-v1` 是 Safe Smart Account 离线签名的 EVM profile。它不是 raw EVM
 transaction profile。被签名对象是 SafeTx：
 
+`evm-safe-v1` 的顶层 `tx` 记录使用：
+
+| 字段 | 要求 |
+| --- | --- |
+| `version` | 必须为 `1`。 |
+| `chain_id` | 十进制字符串，必须与 `SafeTx.chain_id` 一致。 |
+| `tx_kind` | `safe_sign_request`、`safe_signed_tx` 或 `safe_exec_transaction`。 |
+| `tx_type` | 必须为 `safe_tx`。 |
+| `safe` | Safe 地址，按 [06 互通规则](06-interoperability.zh-CN.md#3-编码约定) 中的 EVM 地址约定编码。 |
+| `safe_tx_bytes` | `SafeTx` 的 canonical CBOR 编码。 |
+| `safe_tx_hash` | `SafeTx` 的 Safe EIP-712 签名 digest。 |
+| `payload_hash` | 对 `safe_tx_bytes` 计算的 WTP payload hash。 |
+| `signatures` | `safe_signed_tx` 使用 packed Safe signatures；其他情况为 `null`。 |
+| `exec_transaction_data` | `safe_exec_transaction` 使用外层 `execTransaction(...)` calldata；其他情况为 `null`。 |
+| `issued_at` | Envelope 签发时间。 |
+| `expires_at` | 可选 envelope 过期时间。 |
+| `wallet_app_id` | 可选钱包应用标识。 |
+| `sim_block` | 可选模拟 block 标识。 |
+
 ```text
 SafeTx = {
   safe,
@@ -123,6 +142,8 @@ SafeTx = {
 - `safe_tx_struct_hash = keccak256(abi.encode(SafeTx(...), to, value, keccak256(data), operation, safe_tx_gas, base_gas, gas_price, gas_token, refund_receiver, nonce))`
 - `safe_tx_hash = keccak256(0x1901 || domain_separator || safe_tx_struct_hash)`
 - `payload_hash = keccak256(CBOR(SafeTx))`
+
+`safe_tx_struct_hash` 是 Safe 签名计算内部的 EIP-712 struct hash。`safe_tx_hash` 是 owner 实际签名、验证器用于 Safe 签名恢复的 Safe signing digest。`payload_hash` 是 WTP 对 envelope payload 的完整性绑定。这些 hash 覆盖的域不同，不得互相替代。
 
 对于 `safe_exec_transaction`，外层 EVM calldata 必须是 `execTransaction(...)`。
 因为 Safe `execTransaction(...)` 从合约 storage 读取 Safe nonce，nonce 不在 calldata

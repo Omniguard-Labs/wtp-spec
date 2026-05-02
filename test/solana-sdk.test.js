@@ -99,7 +99,7 @@ for (const txCase of buildSolanaCases()) {
       requireVerified: true
     });
 
-    assert.equal(decoded.schema, 'wtv');
+    assert.equal(decoded.schema, 'wtp');
     assert.equal(decoded.chain_family, 'solana');
     assert.equal(decoded.profile, 'solana-tx-v1');
     assert.equal(decoded.tx.tx_kind, 'sign_request');
@@ -136,7 +136,7 @@ for (const txCase of buildSolanaCases()) {
       requireVerified: true
     });
 
-    assert.equal(decoded.schema, 'wtv');
+    assert.equal(decoded.schema, 'wtp');
     assert.equal(decoded.chain_family, 'solana');
     assert.equal(decoded.profile, 'solana-tx-v1');
     assert.equal(decoded.tx.tx_kind, 'signed_tx');

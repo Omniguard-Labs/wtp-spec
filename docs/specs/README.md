@@ -14,7 +14,8 @@ The English documents are the primary draft text for `WTP-v1`. Chinese documents
 | [03 Discovery and Publishing](03-discovery-and-publishing.md) | `.well-known` trust metadata publishing and verifier behavior | [中文](03-discovery-and-publishing.zh-CN.md) |
 | [04 Chain Validation](04-chain-validation.md) | Common chain validation rules for EVM and Solana | [中文](04-chain-validation.zh-CN.md) |
 | [05 Calculation and Verification](05-calculation-and-verification.md) | Payload hash, origin signature, chain check, and signed transaction calculations | [中文](05-calculation-and-verification.zh-CN.md) |
-| [06 Interoperability](06-interoperability.md) | Wire identifiers, versioning, error names, and vector requirements | [中文](06-interoperability.zh-CN.md) |
+| [06 Interoperability](06-interoperability.md) | Wire identifiers, encoding conventions, profile field mapping, error names, and vector requirements | [中文](06-interoperability.zh-CN.md) |
+| [07 Worked Examples](07-worked-examples.md) | Conformance vector map and verification command | [中文](07-worked-examples.zh-CN.md) |
 | [10 EVM Profile](10-evm-profile.md) | EVM transaction and Safe profile canonical payload rules | [中文](10-evm-profile.zh-CN.md) |
 | [20 Solana Profile](20-solana-profile.md) | Solana transaction profile and canonical payload rules | [中文](20-solana-profile.zh-CN.md) |
 
@@ -32,6 +33,7 @@ The English documents are the primary draft text for `WTP-v1`. Chinese documents
 | [03 发现与发布](03-discovery-and-publishing.zh-CN.md) | `.well-known` trust metadata 发布和验证器行为 | [English](03-discovery-and-publishing.md) |
 | [04 链校验](04-chain-validation.zh-CN.md) | EVM 和 Solana 的通用链校验规则 | [English](04-chain-validation.md) |
 | [05 计算与校验](05-calculation-and-verification.zh-CN.md) | payload hash、来源签名、链检查和已签名交易的计算规则 | [English](05-calculation-and-verification.md) |
-| [06 互通规则](06-interoperability.zh-CN.md) | wire 标识符、版本规则、错误名和测试向量要求 | [English](06-interoperability.md) |
+| [06 互通规则](06-interoperability.zh-CN.md) | wire 标识符、编码约定、profile 字段映射、错误名和测试向量要求 | [English](06-interoperability.md) |
+| [07 示例](07-worked-examples.zh-CN.md) | 一致性测试向量索引和验证命令 | [English](07-worked-examples.md) |
 | [10 EVM Profile](10-evm-profile.zh-CN.md) | EVM 交易和 Safe profile 与规范 payload 规则 | [English](10-evm-profile.md) |
 | [20 Solana Profile](20-solana-profile.zh-CN.md) | Solana 交易 profile 与规范 payload 规则 | [English](20-solana-profile.md) |

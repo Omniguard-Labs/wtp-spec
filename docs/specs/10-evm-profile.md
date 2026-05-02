@@ -100,6 +100,25 @@ Authorization tuples are:
 `evm-safe-v1` is an EVM profile for Safe Smart Account offline signing.
 It is not a raw EVM transaction profile. The signed object is a SafeTx:
 
+The top-level `tx` record for `evm-safe-v1` uses:
+
+| Field | Requirement |
+| --- | --- |
+| `version` | MUST be `1`. |
+| `chain_id` | Decimal string matching `SafeTx.chain_id`. |
+| `tx_kind` | `safe_sign_request`, `safe_signed_tx`, or `safe_exec_transaction`. |
+| `tx_type` | MUST be `safe_tx`. |
+| `safe` | Safe address, encoded using the EVM address convention in [06 Interoperability](06-interoperability.md#3-encoding-conventions). |
+| `safe_tx_bytes` | Canonical CBOR encoding of `SafeTx`. |
+| `safe_tx_hash` | Safe EIP-712 signing digest for the `SafeTx`. |
+| `payload_hash` | WTP payload hash over `safe_tx_bytes`. |
+| `signatures` | Packed Safe signatures for `safe_signed_tx`; otherwise `null`. |
+| `exec_transaction_data` | Outer `execTransaction(...)` calldata for `safe_exec_transaction`; otherwise `null`. |
+| `issued_at` | Envelope issuance timestamp. |
+| `expires_at` | Optional envelope expiry timestamp. |
+| `wallet_app_id` | Optional wallet application identifier. |
+| `sim_block` | Optional simulation block identifier. |
+
 ```text
 SafeTx = {
   safe,
@@ -123,6 +142,8 @@ The verifier computes:
 - `safe_tx_struct_hash = keccak256(abi.encode(SafeTx(...), to, value, keccak256(data), operation, safe_tx_gas, base_gas, gas_price, gas_token, refund_receiver, nonce))`
 - `safe_tx_hash = keccak256(0x1901 || domain_separator || safe_tx_struct_hash)`
 - `payload_hash = keccak256(CBOR(SafeTx))`
+
+`safe_tx_struct_hash` is the EIP-712 struct hash inside the Safe signing calculation. `safe_tx_hash` is the Safe signing digest that owners sign and verifiers use for Safe signature recovery. `payload_hash` is the WTP integrity binding for the envelope payload. These hashes cover different domains and MUST NOT be substituted for one another.
 
 For `safe_exec_transaction`, the outer EVM calldata MUST be `execTransaction(...)`.
 Because Safe `execTransaction(...)` reads the Safe nonce from contract storage,
